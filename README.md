@@ -1,4 +1,3 @@
-# (CAP 6640 Course Project)
 # Evaluating Open-Source LLMs for Bengali Text Classification Across Multiple Domains
 
 
