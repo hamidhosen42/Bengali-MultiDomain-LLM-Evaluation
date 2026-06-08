@@ -4,7 +4,7 @@
 
 ### ABSTRACT
 
-Large Language Models (LLMs) have shown remarkable ability to process multilingual texts, while Bengali is still an underrepresented language. This is due to the unavailability of large linguistic resources and the lack of a standard benchmarking framework, which has yet to be established. In this study, six open-source LLMs, which include LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B, are evaluated using four critical text classification tasks in Bengali, such as sentiment analysis, emotion recognition, hate-speech detection, and fake-news classification. We compared two prompting methods in the context of zero-shot and few-shot prompting using the vLLM model to investigate the adaptability of the model in resource-limited settings. The measurements of performance were based on Accuracy (Acc.), Precision (P), Recall (R), and F1-score (F1) measures. The results of our study indicate that, regardless of the dataset, the bigger multilingual models always performed better in comparison with the smaller ones. When training in zero-shot, Qwen-2.5-72B showed the best performance at 79.9% accuracy and 79.88% F1-score, showing specific effectiveness on hate-speech detection. In the case of fake news, Gemma-2-27B performed best at 84.45% accuracy and 84.33% F1- score. With a few-shot set-up, Gemma-2-27B and Qwen-2.5-72B had a high level of performance in terms of F1-score, 84.17 and 65.86, respectively. It is worth noting that few-shot prompting increased Recall by an average of about 6%, which proves the usefulness of in-context learning in low-resource settings. This study highlights the possibilities of large multilingual models in enabling robust, scalable, and accessible Bengali natural language processing applications.
+Large Language Models (LLMs) have shown remarkable ability to process multilingual texts, while Bengali is still an underrepresented language. This is due to the unavailability of large linguistic resources and the lack of a standard benchmarking framework, which has yet to be established. In this study, six open-source LLMs, which include LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B, are evaluated using four critical text classification tasks in Bengali, such as sentiment analysis, emotion recognition, hate-speech detection, and fake-news classification. We compared two prompting methods in the context of zero-shot and few-shot prompting using the vLLM inference engine and Hugging Face pipelines to investigate the adaptability of the model in resource-limited settings. The measurements of performance were based on Accuracy (Acc.), Precision (P), Recall (R), and F1-score (F1) measures. The results of our study indicate that, regardless of the dataset, the bigger multilingual models always performed better in comparison with the smaller ones. When training in zero-shot, Qwen-2.5-72B showed the best performance at 79.9% accuracy and 79.88% F1-score, showing specific effectiveness on hate-speech detection. In the case of fake news, Gemma-2-27B performed best at 84.45% accuracy and 84.33% F1- score. With a few-shot set-up, Gemma-2-27B and Qwen-2.5-72B had a high level of performance in terms of F1-score, 84.17 and 65.86, respectively. It is worth noting that few-shot prompting increased Recall by an average of about 6%, which proves the usefulness of in-context learning in low-resource settings. This study highlights the possibilities of large multilingual models in enabling robust, scalable, and accessible Bengali natural language processing applications.
 
 
 <p align="center">
@@ -29,6 +29,14 @@ Large Language Models (LLMs) have shown remarkable ability to process multilingu
   ```
   pip install -r requirements.txt
   ```
+  *(Note: If evaluating AWQ models like Qwen-72B, ensure you install `gptqmodel` and a compatible `torch` version).*
+
+## Experimental Hardware Setup
+
+To ensure reproducibility, experiments were conducted across two distinct environments based on model memory constraints:
+- **Local Workstation:** A single NVIDIA RTX 4060 (8GB VRAM) was used to evaluate the smaller models.
+- **Cloud Environment:** A single NVIDIA RTX PRO 6000 (96GB VRAM) hosted on RunPod was utilized exclusively for executing and verifying the Qwen2.5-72B-AWQ model. No multi-GPU clusters were used.
+
 ## Evaluated LLMs
 
 We downloaded the instruct version of the models from the Huggingface Library.
