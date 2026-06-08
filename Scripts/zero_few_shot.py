@@ -12,6 +12,10 @@ import math
 import numpy as np
 import pandas as pd
 import torch
+
+# PATCH: Transformers latest has a bug where it looks for a nightly float8 type.
+if not hasattr(torch, "float8_e8m0fnu"):
+    setattr(torch, "float8_e8m0fnu", torch.float32)
 from transformers import set_seed, AutoTokenizer
 
 warnings.filterwarnings("ignore")
@@ -62,18 +66,18 @@ def prompts(dataset_name, prompt_type):
 # ----------------
 def generate_with_pipeline(pipe, messages, max_retries=3, max_new_tokens=256):
     """Generate text using a HF transformers pipeline."""
-    if isinstance(messages, list):
-        prompt_text = "\n".join([m.get("content", "") for m in messages])
-    else:
-        prompt_text = str(messages)
-
     for attempt in range(max_retries):
         try:
-            out = pipe(prompt_text, max_new_tokens=max_new_tokens)
+            # Pass the messages directly to let the pipeline apply the model's chat template
+            out = pipe(messages, max_new_tokens=max_new_tokens, return_full_text=False)
             if isinstance(out, list) and len(out) > 0:
                 first = out[0]
                 if isinstance(first, dict) and "generated_text" in first:
-                    return first["generated_text"]
+                    gen = first["generated_text"]
+                    # If it returned a list of messages, grab the last one (assistant's reply)
+                    if isinstance(gen, list) and len(gen) > 0 and isinstance(gen[-1], dict):
+                        return gen[-1].get("content", "")
+                    return str(gen)
                 if isinstance(first, str):
                     return first
                 return str(first)
@@ -251,10 +255,10 @@ def main(args):
     # CUDA path (NVIDIA GPU)
     # -------------------------
     if use_cuda:
-        print("CUDA available — using transformers pipeline with GPU (device=0).")
+        print("CUDA available — using transformers pipeline with GPU (device_map='auto').")
         try:
             from transformers import pipeline
-            pipe = pipeline("text-generation", model=args.llm_id, device=0)
+            pipe = pipeline("text-generation", model=args.llm_id, device_map="auto")
             llm_info.update({"mode": "pipeline", "llm": pipe})
         except Exception as e:
             print("Failed to initialize pipeline on CUDA:", e)
