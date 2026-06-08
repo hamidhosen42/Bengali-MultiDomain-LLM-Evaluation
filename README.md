@@ -52,39 +52,39 @@ Prompts for each task are organized in the `Prompts` folder.
 
 
 
-## LLM inference (Examples)
+## LLM Inference (Examples)
 
-To get the **Llama** model response with **Zero-Shot** prompting for any task, run the following script. If you are not in the `Scripts` folder.
-
-```
+Navigate to the `Scripts` directory before running the inference scripts:
+```bash
 cd Scripts
+```
 
+### Example 1: Llama 3.2 (Zero-Shot)
+To get the **Llama** model response with **Zero-Shot** prompting for the Emotion Recognition task:
+```bash
 python zero_few_shot.py \
---llm_id meta-llama/Llama-3.2-3B-Instruct \
---llm_name llama32-3B \
---dataset_name emo \            # emotion recognition
---prompt_type zero              # zero shot prompting
+  --llm_id meta-llama/Llama-3.2-3B-Instruct \
+  --llm_name llama32-3B \
+  --dataset_name emo \
+  --prompt_type zero
 ```
 
-To get the **Qwen** model response with **Few-Shot** prompting for any task, run the following script. If you are not in the `Scripts` folder.
-
-```
-cd Scripts
-
+### Example 2: Qwen 2.5 72B AWQ (Few-Shot)
+To get the **Qwen-72B** model response with **Few-Shot** prompting for Hate Speech Detection:
+```bash
 python zero_few_shot.py \
---llm_id Qwen/Qwen2.5-72B-Instruct-AWQ \
---llm_name qwen-72B \
---dataset_name hate \        # hate speech detection
---prompt_type few           # few shot prompting
+  --llm_id Qwen/Qwen2.5-72B-Instruct-AWQ \
+  --llm_name qwen-72B \
+  --dataset_name hate \
+  --prompt_type few
 ```
 
+### Arguments
 
-**Arguments**
-
-- `--llm_id`: Specify the LLM want to use.
-- `--llm_name`: Specify the llm name.
-- `--dataset_name`: Specify dataset name (<u>option:</u> `senti`,`emo`,`hate`, or `fake`).
-- `--prompt_type`: Specify the **prompting** technique you want to use. (`zero`,`few`)
+- `--llm_id`: The Hugging Face model ID (e.g., `Qwen/Qwen2.5-72B-Instruct-AWQ`).
+- `--llm_name`: A short identifier used for saving results (e.g., `qwen-72B`).
+- `--dataset_name`: The dataset to evaluate on. Options: `senti`, `emo`, `hate`, or `fake`.
+- `--prompt_type`: The prompting technique to use. Options: `zero` or `few`.
 
 You will get an excel file in **Results/** folder that store the responses for the corresponding LLM.
 
