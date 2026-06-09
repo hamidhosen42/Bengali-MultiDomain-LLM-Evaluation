@@ -1,0 +1,9 @@
+Dataset,Prompt Setting,Accuracy p-value,Macro F1 p-value,Conclusion
+Emotion,Zero-shot,1.000,0.943,No significant difference
+Emotion,Few-shot,0.003,0.016,Significant difference
+Fake News,Zero-shot,0.475,0.306,No significant difference
+Fake News,Few-shot,0.876,0.658,No significant difference
+Hate Speech,Zero-shot,0.007,0.004,Significant difference
+Hate Speech,Few-shot,0.001,<0.001,Significant difference
+Sentiment,Zero-shot,<0.001,0.101,"Acc: Significant, F1: Not Sig."
+Sentiment,Few-shot,0.023,0.055,"Acc: Significant, F1: Marginal"

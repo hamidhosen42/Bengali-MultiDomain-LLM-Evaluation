@@ -79,6 +79,21 @@ python zero_few_shot.py \
   --prompt_type few
 ```
 
+### Running All Models and Datasets
+
+To systematically run a model across all datasets and settings, you can use a simple bash loop. For example, to run the zero-shot setting for all four datasets using Llama 3.2:
+
+```bash
+for dataset in emo hate senti fake; do
+  python zero_few_shot.py \
+    --llm_id meta-llama/Llama-3.2-3B-Instruct \
+    --llm_name llama32-3B \
+    --dataset_name $dataset \
+    --prompt_type zero
+done
+```
+Modify the `--llm_id`, `--llm_name`, and `--prompt_type` accordingly for other models.
+
 ### Arguments
 
 - `--llm_id`: The Hugging Face model ID (e.g., `Qwen/Qwen2.5-72B-Instruct-AWQ`).
@@ -92,5 +107,33 @@ You will get an excel file in **Results/** folder that store the responses for t
 
 ---
 
+## Statistical Significance Testing
+
+To ensure the robustness of our comparative evaluation between the top-performing models (Qwen-72B and Gemma2-27B), we performed **paired permutation resampling tests** (1,000 iterations). This non-parametric approach does not assume any underlying data distribution and is highly robust for evaluating differences in paired classification tasks across multiple metrics like Accuracy and Macro F1 score.
+
+### Running the Test
+You can run the significance testing script directly from the root directory:
+```bash
+python evaluate_significance.py
+```
+This will output a `significance_test_results.csv` and `significance_tests_raw.xlsx` inside the `Results/` folder.
+
+### Significance Results Table
+The following table reports the exact $p$-values calculated using our test ($\alpha = 0.05$):
+
+| Dataset | Prompt Setting | Accuracy $p$-value | Macro F1 $p$-value | Conclusion |
+| :--- | :--- | :--- | :--- | :--- |
+| **Emotion** | Zero-shot | 1.000 | 0.943 | No significant difference |
+| **Emotion** | Few-shot | 0.003* | 0.016* | **Significant difference** |
+| **Fake News** | Zero-shot | 0.475 | 0.306 | No significant difference |
+| **Fake News** | Few-shot | 0.876 | 0.658 | No significant difference |
+| **Hate Speech** | Zero-shot | 0.007* | 0.004* | **Significant difference** |
+| **Hate Speech** | Few-shot | 0.001* | <0.001* | **Significant difference** |
+| **Sentiment** | Zero-shot | <0.001* | 0.101 | Acc: **Significant**, F1: Not Sig. |
+| **Sentiment** | Few-shot | 0.023* | 0.055 | Acc: **Significant**, F1: Marginal |
+
+*\* denotes statistical significance at $\alpha = 0.05$.*
+
+---
 
 "# Evaluating-Open-Source-LLMs-for-Bengali-Text-Classification-Across-Multiple-Domains" 
