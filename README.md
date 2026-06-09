@@ -134,6 +134,25 @@ The following table reports the exact $p$-values calculated using our test ($\al
 
 *\* denotes statistical significance at $\alpha = 0.05$.*
 
+### 95% Confidence Intervals for Macro F1 Score
+To account for the varying test set sizes across the tasks, we computed the 95% Confidence Intervals (CI) for the Macro F1 score using bootstrap resampling (1,000 iterations).
+
+| Dataset (Test Size) | Prompt Setting | Qwen-72B F1 (95% CI) | Gemma2-27B F1 (95% CI) |
+| :--- | :--- | :--- | :--- |
+| **Emotion (625)** | Zero-shot | 61.91 (58.08, 65.96) | 61.80 (57.95, 65.39) |
+| **Emotion (625)** | Few-shot | 66.80 (63.11, 70.17) | 63.01 (59.59, 66.37) |
+| **Fake News (508)** | Zero-shot | 82.91 (79.57, 86.11) | 84.33 (80.87, 87.37) |
+| **Fake News (508)** | Few-shot | 83.68 (80.28, 86.80) | 84.17 (80.98, 87.34) |
+| **Hate Speech (1000)** | Zero-shot | 79.88 (77.49, 82.28) | 76.11 (73.38, 78.71) |
+| **Hate Speech (1000)** | Few-shot | 78.25 (75.65, 80.67) | 73.39 (70.56, 76.04) |
+| **Sentiment (1586)** | Zero-shot | 56.84 (54.45, 59.22) | 58.66 (56.38, 61.25) |
+| **Sentiment (1586)** | Few-shot | 58.82 (56.45, 61.11) | 60.68 (58.37, 63.18) |
+
+You can generate these confidence intervals by running:
+```bash
+python calculate_ci.py
+```
+
 ---
 
 "# Evaluating-Open-Source-LLMs-for-Bengali-Text-Classification-Across-Multiple-Domains" 
