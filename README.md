@@ -39,14 +39,14 @@ To ensure reproducibility, experiments were conducted across two distinct enviro
 
 ## Evaluated LLMs
 
-We downloaded the instruct version of the models from the Huggingface Library.
+To ensure full transparency and reproducibility, we utilized the official model weights hosted on the Hugging Face Hub. Below are the exact repository identifiers used for evaluation:
 
-- [Llama-3.2-3B](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)
-- [Mistral-V3-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3)
-- [DeepSeek-R1-8B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B) (Llama Distilled)
-- [Phi-4-14B](https://huggingface.co/microsoft/phi-4)
-- [Gemma-2-27B](https://huggingface.co/google/gemma-2-27b)
-- [Qwen-2.5-72B-AWQ](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct-AWQ)
+- **Llama-3.2-3B:** [`meta-llama/Llama-3.2-3B-Instruct`](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)
+- **Mistral-V3-7B:** [`mistralai/Mistral-7B-Instruct-v0.3`](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3)
+- **DeepSeek-R1-8B:** [`deepseek-ai/DeepSeek-R1-Distill-Llama-8B`](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B)
+- **Phi-4-14B:** [`microsoft/phi-4`](https://huggingface.co/microsoft/phi-4)
+- **Gemma-2-27B:** [`google/gemma-2-27b`](https://huggingface.co/google/gemma-2-27b)
+- **Qwen-2.5-72B-AWQ:** [`Qwen/Qwen2.5-72B-Instruct-AWQ`](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct-AWQ)
 
 Prompts for each task are organized in the `Prompts` folder.
 
