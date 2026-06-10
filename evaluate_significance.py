@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
+from sklearn.metrics import f1_score
 
 datasets = ['emo', 'fake', 'hate', 'senti']
 shots = ['zero_shot', 'few_shot']
@@ -13,32 +14,10 @@ def clean_label(label):
     if pd.isna(label): return ""
     return str(label).strip().lower()
 
-def fast_macro_f1(y_true, y_pred, unique_classes):
-    f1s = []
-    for c in unique_classes:
-        tp = np.sum((y_pred == c) & (y_true == c))
-        fp = np.sum((y_pred == c) & (y_true != c))
-        fn = np.sum((y_pred != c) & (y_true == c))
-        
-        # To avoid division by zero
-        if tp + fp == 0:
-            precision = 0.0
-        else:
-            precision = tp / (tp + fp)
-            
-        if tp + fn == 0:
-            recall = 0.0
-        else:
-            recall = tp / (tp + fn)
-            
-        if precision + recall == 0:
-            f1 = 0.0
-        else:
-            f1 = 2 * (precision * recall) / (precision + recall)
-        f1s.append(f1)
-    return np.mean(f1s)
+def fast_macro_f1(y_true, y_pred):
+    return f1_score(y_true, y_pred, average='macro', zero_division=0)
 
-def fast_permutation_test(y_true, y_pred1, y_pred2, unique_classes, n_iterations=1000):
+def fast_permutation_test(y_true, y_pred1, y_pred2, n_iterations=1000):
     n = len(y_true)
     
     # Base Accuracy
@@ -47,8 +26,8 @@ def fast_permutation_test(y_true, y_pred1, y_pred2, unique_classes, n_iterations
     acc_diff = abs(acc_m1 - acc_m2)
     
     # Base F1
-    f1_m1 = fast_macro_f1(y_true, y_pred1, unique_classes)
-    f1_m2 = fast_macro_f1(y_true, y_pred2, unique_classes)
+    f1_m1 = fast_macro_f1(y_true, y_pred1)
+    f1_m2 = fast_macro_f1(y_true, y_pred2)
     f1_diff = abs(f1_m1 - f1_m2)
     
     acc_count = 0
@@ -69,8 +48,8 @@ def fast_permutation_test(y_true, y_pred1, y_pred2, unique_classes, n_iterations
             acc_count += 1
             
         # F1
-        sim_f1_m1 = fast_macro_f1(y_true, sim_pred1, unique_classes)
-        sim_f1_m2 = fast_macro_f1(y_true, sim_pred2, unique_classes)
+        sim_f1_m1 = fast_macro_f1(y_true, sim_pred1)
+        sim_f1_m2 = fast_macro_f1(y_true, sim_pred2)
         if abs(sim_f1_m1 - sim_f1_m2) >= f1_diff:
             f1_count += 1
             
@@ -93,9 +72,7 @@ for ds in datasets:
         y_pred1 = df[model1].apply(clean_label).values
         y_pred2 = df[model2].apply(clean_label).values
         
-        unique_classes = np.unique(y_true)
-        
-        acc_1, acc_2, p_acc, f1_1, f1_2, p_f1 = fast_permutation_test(y_true, y_pred1, y_pred2, unique_classes)
+        acc_1, acc_2, p_acc, f1_1, f1_2, p_f1 = fast_permutation_test(y_true, y_pred1, y_pred2)
         
         records.append({
             'Dataset': ds,
