@@ -59,8 +59,8 @@ Navigate to the `Scripts` directory before running the inference scripts:
 cd Scripts
 ```
 
-### Example 1: Llama 3.2 (Zero-Shot)
-To get the **Llama** model response with **Zero-Shot** prompting for the Emotion Recognition task:
+### Example 1: Llama-3.2-3B
+To evaluate the **Llama-3.2-3B** model with **Zero-Shot** prompting on the Emotion dataset:
 ```bash
 python zero_few_shot.py \
   --llm_id meta-llama/Llama-3.2-3B-Instruct \
@@ -69,8 +69,48 @@ python zero_few_shot.py \
   --prompt_type zero
 ```
 
-### Example 2: Qwen 2.5 72B AWQ (Few-Shot)
-To get the **Qwen-72B** model response with **Few-Shot** prompting for Hate Speech Detection:
+### Example 2: Mistral-V3-7B
+To evaluate the **Mistral-V3-7B** model with **Few-Shot** prompting on the Sentiment dataset:
+```bash
+python zero_few_shot.py \
+  --llm_id mistralai/Mistral-7B-Instruct-v0.3 \
+  --llm_name mistral-7B \
+  --dataset_name senti \
+  --prompt_type few
+```
+
+### Example 3: DeepSeek-R1-8B
+To evaluate the **DeepSeek-R1-8B** model with **Zero-Shot** prompting on the Fake News dataset:
+```bash
+python zero_few_shot.py \
+  --llm_id deepseek-ai/DeepSeek-R1-Distill-Llama-8B \
+  --llm_name deepseek-8B \
+  --dataset_name fake \
+  --prompt_type zero
+```
+
+### Example 4: Phi-4-14B
+To evaluate the **Phi-4-14B** model with **Few-Shot** prompting on the Hate Speech dataset:
+```bash
+python zero_few_shot.py \
+  --llm_id microsoft/phi-4 \
+  --llm_name phi4-14B \
+  --dataset_name hate \
+  --prompt_type few
+```
+
+### Example 5: Gemma-2-27B
+To evaluate the **Gemma-2-27B** model with **Zero-Shot** prompting on the Emotion dataset:
+```bash
+python zero_few_shot.py \
+  --llm_id google/gemma-2-27b \
+  --llm_name gemma2-27B \
+  --dataset_name emo \
+  --prompt_type zero
+```
+
+### Example 6: Qwen-2.5-72B-AWQ
+To evaluate the **Qwen-2.5-72B-AWQ** model with **Few-Shot** prompting on the Hate Speech dataset:
 ```bash
 python zero_few_shot.py \
   --llm_id Qwen/Qwen2.5-72B-Instruct-AWQ \
