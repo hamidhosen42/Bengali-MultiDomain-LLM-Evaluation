@@ -425,6 +425,7 @@ reinforcement learning-based techniques, to improve reasoning and
 instruction-following capabilities. These differences provide a diverse basis 
 for evaluating Bengali text classification performance.}
 
+
 \rev{To ensure full transparency and reproducibility of our experiments, we utilized the official model weights hosted on the Hugging Face Hub. Specifically, the evaluated models correspond to the following repository identifiers: \texttt{meta-llama/Llama-3.2-3B-Instruct}, \texttt{mistralai/Mistral-7B-Instruct-v0.3}, \texttt{deepseek-ai/DeepSeek-R1-Distill-Llama-8B}, \texttt{microsoft/phi-4}, \texttt{google/gemma-2-27b}, and \texttt{Qwen/Qwen2.5-72B-Instruct-AWQ}. Notably, for the Qwen-2.5-72B model, we employed the AWQ (Activation-aware Weight Quantization) version to fit the model within the available VRAM constraints while maintaining robust inference performance.}
 
 The overall specifications of the evaluated models are summarized in Table~\ref{tab:models}.
@@ -451,7 +452,7 @@ Qwen-2.5-72B   & 72B & Transformer        & Alibaba Cloud \\\hline
 \end{table}
 
 
-The six selected models for assessment are based on the Transformer decoder architecture~\cite{b35}, where the self-attention mechanism is the central component.
+\rev{The six selected models for assessment follow the decoder-only Transformer paradigm introduced by Vaswani et al.~\cite{vaswani2017attention} and later scaled successfully in GPT-style language models such as GPT-3~\cite{brown2020gpt3}, where the self-attention mechanism is the central component.}
 
 The computation of the self-attention mechanism for the input sequence is as follows:
 
@@ -1507,7 +1508,7 @@ In addition, for easier transparency and reproducibility, the research will only
 
 Third, the prompting method adopted here is exclusive to zero-shot and few-shot (five-shot) settings. More advanced methods of prompting (e.g., chain-of-thought reasoning, self-consistency or retrieval-augmented generation) could lead to more improvements but were not in the scope of this work. Also, parameter-efficient fine-tuning mechanisms such as LoRA or QLoRA, could be pursued and provide practical ways to improve the performance of smaller models without spending much in terms of computing time.
 
-Fourth, the datasets we used, while standard benchmarks in the Bengali NLP community, suffer from natural limitations in terms of size and coverage, domain diversity, and annotation consistency. Authors says that much of their data comes from social media, and may not reflect formal or domain-specific Bengali. Second, some datasets are small (e.g., the emotion recognition corpus: only 625 examples), which may compromise statistical stability and the generalisation value of the results. \rev{Furthermore, the SentiNoB dataset exhibits class imbalance, containing 654 positive samples, 571 negative samples, and only 361 neutral samples. This imbalance may have influenced class-wise performance, particularly the lower F1-scores observed for the neutral category in the sentiment analysis task.}
+Fourth, the datasets we used, while standard benchmarks in the Bengali NLP community, suffer from natural limitations in terms of size and coverage, domain diversity, and annotation consistency. \rev{For instance, much of the data originates from social media platforms and may not accurately reflect formal or domain-specific Bengali.} Second, some datasets are small (e.g., the emotion recognition corpus: only 625 examples), which may compromise statistical stability and the generalisation value of the results. \rev{Furthermore, the SentiNoB dataset exhibits class imbalance, containing 654 positive samples, 571 negative samples, and only 361 neutral samples. This imbalance may have influenced class-wise performance, particularly the lower F1-scores observed for the neutral category in the sentiment analysis task.}
 
 
 
