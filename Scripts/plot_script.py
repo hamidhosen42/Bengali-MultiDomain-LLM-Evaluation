@@ -865,7 +865,14 @@ def plot_roc_auc(df, dataset_name, mode, class_names, show=True):
     plt.plot([0, 1], [0, 1], 'k--', lw=1)
     plt.xlabel('False Positive Rate', fontsize=10)
     plt.ylabel('True Positive Rate', fontsize=10)
-    plt.title(f"ROC–AUC: {dataset_name.upper()} ({mode.replace('_', ' ').title()})", fontsize=11)
+    dataset_full_names = {
+        'senti': 'Sentiment Analysis',
+        'emo': 'Emotion Recognition',
+        'hate': 'Hate Speech Detection',
+        'fake': 'Fake News Detection'
+    }
+    title_dataset = dataset_full_names.get(dataset_name, dataset_name.upper())
+    plt.title(f"ROC–AUC: {title_dataset} ({mode.replace('_', ' ').title()})", fontsize=11)
     plt.legend(loc='lower right', fontsize=8)
     plt.grid(alpha=0.3)
     plt.tight_layout()
