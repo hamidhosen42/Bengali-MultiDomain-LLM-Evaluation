@@ -1,6 +1,6 @@
 import os
 
-filepath = r'e:\Evaluating the Effectiveness of Open-Source LLMs for Multi-Domain Bengali Text Classification with Zero-Shot and Few-Shot Prompting\Revised_Manuscript_with_Track_Changes___PLOS_ONE\plos_latex_template.tex'
+filepath = r'e:\Bengali-MultiDomain-LLM-Evaluation\Revised_Manuscript_with_Track_Changes___PLOS_ONE\plos_latex_template.tex'
 
 with open(filepath, 'r', encoding='utf-8') as f:
     text = f.read()
@@ -78,6 +78,15 @@ replacements = [
     (
         r"Joboji",
         r"Authors"
+    ),
+    # 11. GitHub URL
+    (
+        r"The datasets used in this study are publicly available at: \url{https://github.com/hamidhosen42/Evaluating-the-Effectiveness-of-Open-Source-LLMs-for-Multi-Domain-Bengali-Text-Classification-with-Z}.",
+        r"The datasets and code used in this study are publicly available at: \url{https://github.com/hamidhosen42/Bengali-MultiDomain-LLM-Evaluation}."
+    ),
+    (
+        r"The datasets used in this study are publicly available at: \url{https://github.com/hamidhosen42/open-source-llms-bengali-text-classification}.",
+        r"The datasets and code used in this study are publicly available at: \url{https://github.com/hamidhosen42/Bengali-MultiDomain-LLM-Evaluation}."
     )
 ]
 
