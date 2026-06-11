@@ -139,8 +139,8 @@
 
 
 % Remove comment for double spacing
-%\usepackage{setspace} 
-%\doublespacing
+\usepackage{setspace} 
+\doublespacing
 
 % Text layout
 \raggedright
@@ -276,12 +276,12 @@ This research presents several noteworthy contributions to the rising field of t
 
 
 
-\section*{Related Work}
+\section*{Related work}
 \label{sec:related}
 
 Large Language Models (LLMs) for the Bengali language are currently gaining growth, similar to previous advances in Natural Language Processing. Though Bangla is one of the most widely spoken languages in the world, it still lags behind in the field of computational linguistics due to limited annotated corpora, ineffective tokenization, and inadequate domain coverage. In recent times, the focus has been on model adaptation, resource generation, and zero- or few-shot prompting strategies to improve Bengali text understanding and classification across multiple domains.
 
-\subsection*{Progress in Bengali LLMs and Benchmark Development}
+\subsection*{Progress in Bengali LLMs and benchmark development}
 
 Recent years have witnessed substantial progress in Bengali natural language processing (NLP), driven by the development of Bengali-specific pre-trained language models, multilingual large language models (LLMs), benchmark datasets, and evaluation frameworks. Table~\ref{tab:bangla_llm_progress} summarizes representative studies and their key contributions to Bengali NLP research.
 
@@ -327,13 +327,13 @@ As summarized in Table~\ref{tab:bangla_llm_progress}, prior studies have explore
 
 
 
-\subsection*{Resource Creation and Cross-Domain Studies}
+\subsection*{Resource creation and cross-domain studies}
 
 Mahtab \textit{et al.}~\cite{b12} developed BanNERD, a comprehensive 29-domain Bengali NER dataset intended to improve contextual generalization in named-entity recognition algorithms. In a similar vein, Shafayat \textit{et al.}~\cite{b13} published BEnQA, a bilingual Bengali-English question-answering dataset that demonstrated considerable thinking differences between the two languages. Singh \textit{et al.}~\cite{b14} further multilingual research by developing IndicGenBench, a generative benchmark encompassing 11 Indic languages, indicating that contemporary multilingual systems still face significant hurdles in addressing morphological and syntactic variances. Shukla \textit{et al.}~\cite{b15} introduced IndicMMLU-Pro, a multilingual reasoning benchmark, and found that Indic LLMs continue to lag English-centric models in comprehension tests. Expanding resources for Bengali NLP.  Fahim \textit{et al.}~\cite{b16}presented BanglaTLit, a transliteration dataset with 42.7K Romanized Bengali items, in which fine-tuned encoder models reached cutting-edge performance. Haider \textit{et al.}~\cite{b17} introduced BANTH, a multi-label hate-speech dataset for transliterated Bengali that significantly increased zero-shot classification accuracy. Romim \textit{et al.}~\cite{b18} assembled BD-SHS, a dataset of 50,000 online hate-speech samples, and achieved a 91\% F1-score using contextual learning approaches. Nayeem \textit{et al.}~\cite{b19} proposed MultiBanFakeDetect, a multimodal approach for detecting false news that combines textual and visual data to improve cross-domain robustness. Furthermore, Hasan \textit{et al.}~\cite{b20} developed Bangla\_ABSA, the first aspect-based sentiment analysis dataset for Bengali, which covers domains such as restaurants, mobile devices, and autos, allowing for fine-grained polarity recognition.
 
 Nahin \textit{et al.}~\cite{b21} continued the advancement in large-scale Bengali modeling by introducing TituLLMs, a family of Bengali large language models trained on 37 billion tokens that outperformed multilingual models such as LLaMA and Zephyr in reasoning and comprehension tasks. Faria \textit{et al.}~\cite{b22} compared GPT-3.5 Turbo and Gemini 1.5 Pro to transformer-based baselines for hate-speech recognition and achieved 98.5\% accuracy in a few shots. Hasan \textit{et al.}~\cite{b23} explored zero-shot and few-shot prompting for sentiment analysis and discovered that in-context examples greatly improve LLMs' generative capacities. Rafid \textit{et al.}~\cite{b24} compared decoder-only and encoder-based models for multi-label document categorization and concluded that decoder architectures respond better to unstructured textual input. Likewise, Saha \textit{et al.}~\cite{b25} established a hybrid knowledge-driven model that identifies altered Bengali news using language signals and semantic embeddings, with an accuracy of more than 90\%.
 
-\subsection*{Domain-Specific LLM Adaptations and Applications}
+\subsection*{Domain-specific LLM adaptations and applications}
 
 Hossain \textit{et al.}~\cite{b26} proposed BanglaNewsClassifier, a hybrid stacking ensemble that uses SVM, Random Forest, and XGBoost models to classify 118K Bengali news articles with 94\% accuracy. Chowdhury \textit{et al.}~\cite{b27} demonstrated DepGPT, a fine-tuned large language model designed to detect depressive language in social media content, with an accuracy of 97.9\%, demonstrating how LLMs may efficiently capture emotional and psychological patterns in text. Kamruzzaman \textit{et al.}~\cite{b28} generated BanMANI, an annotated dataset for detecting altered Bengali social media news, underlining the significance of domain-specific data resources for misinformation identification. Faria \textit{et al.}~\cite{b29} evaluated the performance of large language models (GPT-3.5, Gemini 1.5 Pro) and transformer-based architectures (BanglaBERT, DistilBERT) on Bengali natural language inference, revealing significant variations in reasoning capacities. Their findings showed that few-shot prompting considerably improved reasoning abilities over standard fine-tuning methods. Maity and Deroy \textit{et al.}~\cite{b30} investigated prompt-tuning strategies for Bengali grammatical error explanation using GPT-4, GPT-3.5, and LLaMA-2 and found significant increases in both accuracy and interpretability, indicating a potential direction for educational NLP applications in Bengali.
 
@@ -368,9 +368,9 @@ language understanding and text classification.}
 \end{adjustwidth}
 \end{figure*}
 
-The methodology of this research is presented in the diagram, Fig.\ref{fig:prompt-methodology}. Initially, the Bengali text classification datasets were prepared from multiple domains, which include sentiment analysis, emotion recognition, hate speech detection, and fake news detection. The models separately undergo a zero-shot and a few-shot experimental setup. It mainly helps understand the models' in-context learning ability. The models were provided with the input sample and task instructions in case of the \textit{zero-shot} setup. And for the \textit{few-shot} setup, before the test input, five labeled Bengali text samples were added to the prompt, enabling the model to determine contextual relationships. The purpose of this setup is to assess whether the sample-based context enhances the performance for low-resource languages.
+The methodology of this research is presented in the diagram, Fig~\ref{fig:prompt-methodology}. Initially, the Bengali text classification datasets were prepared from multiple domains, which include sentiment analysis, emotion recognition, hate speech detection, and fake news detection. The models separately undergo a zero-shot and a few-shot experimental setup. It mainly helps understand the models' in-context learning ability. The models were provided with the input sample and task instructions in case of the \textit{zero-shot} setup. And for the \textit{few-shot} setup, before the test input, five labeled Bengali text samples were added to the prompt, enabling the model to determine contextual relationships. The purpose of this setup is to assess whether the sample-based context enhances the performance for low-resource languages.
 
-\subsection*{Datasets and Tasks}
+\subsection*{Datasets and tasks}
 This research aims to evaluate Large Language Models based on their performance in Bengali text classification. To properly assess the models, four types of text classification were divided into two categories: opinion-based judgment (sentiment analysis and emotion recognition) and fact-based verification judgment (hate speech detection and fake news detection). The detailed information on the datasets is displayed in Table~\ref{tab:datasets}.
 
 \begin{table}[!t]
@@ -392,19 +392,16 @@ Fake News Detection & BanFakeNews~\cite{b34} & 2 & 508 \\\hline
 
 
 
-\subsubsection*{Sentiment Analysis}
+\subsubsection*{Sentiment analysis}
 The SentiNoB~\cite{b31} dataset was used for sentiment analysis. This dataset consists of three categories collected from social media and annotated into positive, negative, and neutral. The categories contain 1586 samples, where positive was 654, negative was 571, and neutral was 361.
 
-\subsubsection*{Emotion Recognition}
-The BEmoC dataset~\cite{b32} was used for emotion recognition analysis. The dataset was annotated into six categories: joy, anger, disgust, sadness, surprise, and fear. As usual, this dataset was gathered from social networking sites. The test set comprises 625 samples.
-
-\subsubsection*{Emotion Recognition}
+\subsubsection*{Emotion recognition}
 The BEmoC dataset~\cite{b32} was used for emotion recognition analysis. The dataset was annotated into six categories: joy, anger, disgust, sadness, surprise, and fear. As usual, this dataset was gathered from social networking sites. The test set comprises 625 samples \rev{and is highly imbalanced across the classes (e.g., 165 samples for disgust versus only 71 for anger), reflecting the natural distribution of emotional text on social media.}
 
-\subsubsection*{Hate Speech Detection}
+\subsubsection*{Hate speech detection}
 The Bengali Hate Speech Dataset~\cite{b33} was used to evaluate the hate speech detection capability of models. The binary classification framework was implemented for uniformity. A balanced dataset proportion can be viewed in the test set, which consists of 500 samples of hateful and 500 samples of non-hateful samples.
 
-\subsubsection*{Fake News Detection}
+\subsubsection*{Fake news detection}
 Fake news detection was assessed using the BanFakeNews dataset~\cite{b34}. The dataset consists of approximately 20,000 real news articles and 254 fake news articles. \rev{Since the dataset is highly imbalanced, the majority class (real news) was randomly downsampled using a fixed random seed of 42 to ensure reproducibility. Specifically, all 254 fake news samples were retained, and 254 real news samples were randomly selected from the majority class, resulting in a balanced evaluation set of 508 samples with a 1:1 class ratio. We avoided oversampling methods such as text duplication or synthetic data generation to prevent introducing artificial patterns into the evaluation. Since the evaluation set was constructed solely from existing samples, no textual content was modified during the data preparation process. However, we acknowledge that random downsampling may not fully preserve the semantic distribution of the original dataset, which represents a potential limitation of this evaluation setting.} Despite this limitation, the balanced test set provided a practical and consistent setting for comparing the performance of different LLMs under identical evaluation conditions.
 
 
@@ -711,7 +708,7 @@ Qwen-2.5 further incorporates Rotary Positional Embeddings (RoPE), SwiGLU activa
 The model utilizes a byte-level BPE tokenizer with a vocabulary size of 151,936 tokens~\cite{b41}. This large vocabulary facilitates effective tokenization across diverse languages and writing systems, including Bengali. To accommodate the large parameter count within available hardware constraints, the AWQ (Activation-aware Weight Quantization) version of Qwen-2.5-72B was used in this study while preserving strong inference performance.
 
 
-\subsection*{Prompting Strategies}
+\subsection*{Prompting strategies}
 \label{sec:prompting}
 
 \rev{
@@ -733,6 +730,7 @@ To ensure a fair comparison, the same prompt template structure was applied acro
 
 Task-related prompts were generated for Bengali text classification, the four types of classifications include \textit{Sentiment Analysis}, \textit{Emotion Recognition}, \textit{Hate Speech Detection}, and \textit{Fake News Detection}. 
 The prompt was drafted individually to properly describe the task, explain the label space, and stipulate the necessary JSON output pattern for uniform parsing and assessment.
+\rev{The prompts used for the zero-shot setting across these tasks are illustrated in Fig~\ref{fig:senti_zero_prompt}, Fig~\ref{fig:emo_zero_prompt}, Fig~\ref{fig:hate_zero_prompt}, and Fig~\ref{fig:fake_zero_prompt}, respectively. Similarly, the prompts used for the few-shot setting are presented in Fig~\ref{fig:senti_few_prompt}, Fig~\ref{fig:emo_few_prompt}, Fig~\ref{fig:hate_few_prompt}, and Fig~\ref{fig:fake_few_prompt}.}
 
 This consistent pattern enables equal comparison among the LLMs. 
 We differentiate the zero-shot and few-shot systems to analyze if the incorporation of contextual samples enhanced the classification performance and accuracy for Bengali text classification. 
@@ -817,7 +815,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \end{minipage}
 \end{adjustwidth}
 
-\subsection*{Experimental Setup}
+\subsection*{Experimental setup}
 \label{sec:experiment}
 
 \rev{
@@ -829,7 +827,7 @@ For large-scale inference involving Qwen-2.5-72B-Instruct-AWQ, a cloud-based NVI
 }
 
 \rev{
-To ensure a fair comparison, all models were evaluated using a unified deterministic decoding configuration. Generation was performed using greedy decoding (\texttt{do\_sample=False}) with a maximum output length of 512 tokens. A fixed random seed of 42 was used throughout the experiments to ensure reproducibility. The same decoding configuration was applied across all datasets and prompting strategies so that performance differences primarily reflected model capability rather than variations in generation settings.
+To ensure a fair comparison, all models were evaluated using a unified deterministic decoding configuration, as detailed in Table~\ref{tab:inference}. Generation was performed using greedy decoding (\texttt{do\_sample=False}) with a maximum output length of 512 tokens. A fixed random seed of 42 was used throughout the experiments to ensure reproducibility. The same decoding configuration was applied across all datasets and prompting strategies so that performance differences primarily reflected model capability rather than variations in generation settings.
 }
 
 \begin{table}[!t]
@@ -881,7 +879,7 @@ All experiments were executed on 64-bit operating systems with CUDA and PyTorch 
 }
 
 
-\subsection*{Evaluation Metrics}
+\subsection*{Evaluation metrics}
 \label{sec:evaluation_metrics}
 The models were evaluated using established evaluation metrics: \textit{Accuracy}, \textit{Precision}, \textit{Recall}, and \textit{Macro-averaged F1-score}. 
 
@@ -929,7 +927,7 @@ Here, \(c\) denotes an individual class, and \(C\) represents the total number o
 
 
 
-\subsection*{Statistical Significance Testing}
+\subsection*{Statistical significance testing}
 \label{sec:statistical_significance}
 
 \rev{To assess whether the observed performance differences between the evaluated Large Language Models (LLMs) were statistically meaningful, we performed paired permutation tests on the model predictions. Because all models were evaluated on the same test instances, a paired testing framework was adopted to account for the dependency between predictions and to provide a more reliable comparison.}
@@ -940,19 +938,19 @@ Here, \(c\) denotes an individual class, and \(C\) represents the total number o
 
 \rev{A permutation-based approach was selected because it is non-parametric and does not require assumptions regarding the underlying distribution of evaluation metrics. Consequently, it is well suited for comparing classification models on shared benchmark datasets. In this study, the test was applied to compare the prediction outputs of Qwen-2.5-72B and Gemma-2-27B, the two strongest-performing models across the evaluated tasks.}
 
-\subsection*{Confidence Interval Estimation}
+\subsection*{Confidence interval estimation}
 \label{sec:confidence_interval}
 
 \rev{To quantify the uncertainty associated with model performance estimates, 95\% confidence intervals (CIs) were computed for the Macro F1-score using bootstrap resampling. For each model and evaluation setting, 1,000 bootstrap samples were generated by randomly sampling the test instances with replacement. The Macro F1-score was calculated for each bootstrap sample, and the 2.5th and 97.5th percentiles of the resulting distribution were used to construct the 95\% confidence interval. This non-parametric approach does not assume any specific distribution of the evaluation metric and is widely used for estimating uncertainty in machine learning evaluation studies.}
 
 
 
-\section*{Results and Analysis}
+\section*{Results and analysis}
 \label{sec:results}
 
 This section presents the performance of various LLMs on two prompting settings across four classification tasks. The associated results for each prompting strategy are described as follows.
 
-\subsection*{Statistical Significance Analysis}
+\subsection*{Statistical significance analysis}
 
 \rev{To determine whether the observed performance differences between the evaluated LLMs were statistically significant, paired permutation tests were conducted using 1,000 random permutations. The analysis focused on the two strongest-performing models, Qwen-2.5-72B and Gemma-2-27B, across all datasets and prompting settings. Table~\ref{tab:significance_results} presents the corresponding p-values for accuracy and macro F1-score.}
 
@@ -988,7 +986,7 @@ This section presents the performance of various LLMs on two prompting settings 
 
 \rev{Overall, these results suggest that numerical differences in performance metrics should be interpreted with caution, as they do not always correspond to statistically significant performance gains. Therefore, both evaluation metrics and statistical significance tests should be considered when comparing LLM performance.}
 
-\subsection*{Confidence Interval Analysis}
+\subsection*{Confidence interval analysis}
 
 \rev{To account for the varying test-set sizes across the evaluated tasks, 95\% bootstrap confidence intervals were computed for the Macro F1-score of the two strongest-performing models, Qwen-2.5-72B and Gemma-2-27B. Table~\ref{tab:confidence_intervals} reports the corresponding confidence intervals.}
 
@@ -1023,7 +1021,7 @@ This section presents the performance of various LLMs on two prompting settings 
 
 
 
-\subsection*{Zero-Shot Performance}
+\subsection*{Zero-shot performance}
 \label{sec:zero_shot}
 
 Table~\ref{tab:zero_shot} presents the zero-shot performance of all evaluated large language models (LLMs) across the four Bengali text classification tasks. For the sentiment Analysis task, Gemma-2-27B reported the overall best results on accuracy (62.04\%), recall (62.04\%), and \rev{Macro-F1} score (\rev{58.66\%}) a word-based approach that generalizes very well even without in-context usage of examples. In comparison, Qwen-2.5-72B achieved the best precision with 66.12\%, meaning it was better at suppressing false positives and generating confident predictions.
@@ -1077,7 +1075,7 @@ Qwen-2.5-72B    & 79.90 & 80.05 & 79.90 & \rev{79.88} & 83.27 & 86.26 & 83.27 & 
 \end{table*}
 
 
-\subsection*{Few-Shot Performance}
+\subsection*{Few-shot performance}
 \label{sec:few_shot}
 
 
@@ -1129,16 +1127,16 @@ Qwen-2.5-72B    & 78.40 & 79.18 & 78.40 & \rev{\textbf{78.25}} & 84.06 & 87.50 &
 \end{table*}
 
 
-\subsection*{Class-Wise Performance Analysis}
+\subsection*{Class-wise performance analysis}
 
 This section discusses the LLMs' performance across different classes of the four classification tasks.
 
-\subsubsection*{LLMs Performance Across Sentiment Categories}
+\subsubsection*{LLMs performance across sentiment categories}
 \label{sec:sentiment_classes}
 
-Fig.\ref{fig:sentiment_classes} presents the F1-scores of each sentiment class across all large language models (LLMs) for both zero-shot and few-shot prompting settings. In the zero-shot condition, all models achieve higher F1 scores on the negative and positive sentiment classes when comparing with Gemma-2-27B model and Qwen-2.5-72B with the most optimal performance. However, the neutral class remains inferior in F1-score across all models, consistently showing that separating neutral sentiment is still difficult in the absence of context examples. \rev{This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative).}
+Fig~\ref{fig:sentiment_classes} presents the F1-scores of each sentiment class across all large language models (LLMs) for both zero-shot and few-shot prompting settings. In the zero-shot condition, all models achieve higher F1 scores on the negative and positive sentiment classes when comparing with Gemma-2-27B model and Qwen-2.5-72B with the most optimal performance. However, the neutral class remains inferior in F1-score across all models, consistently showing that separating neutral sentiment is still difficult in the absence of context examples. \rev{This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative).}
 
-Fig.\ref{fig:sentiment_classes} presents the F1-scores of each sentiment class across all large language models (LLMs) for both zero-shot and few-shot prompting settings. In the zero-shot condition, all models achieve higher F1 scores on the negative and positive sentiment classes when comparing with Gemma-2-27B model and Qwen-2.5-72B with the most optimal performance. However, the neutral class remains inferior in F1-score across all models, consistently showing that separating neutral sentiment is still difficult in the absence of context examples. This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative). This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative). \rev{This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative).}
+Fig~\ref{fig:sentiment_classes} presents the F1-scores of each sentiment class across all large language models (LLMs) for both zero-shot and few-shot prompting settings. In the zero-shot condition, all models achieve higher F1 scores on the negative and positive sentiment classes when comparing with Gemma-2-27B model and Qwen-2.5-72B with the most optimal performance. However, the neutral class remains inferior in F1-score across all models, consistently showing that separating neutral sentiment is still difficult in the absence of context examples. This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative). This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative). \rev{This difficulty is partially exacerbated by the fact that the neutral class is underrepresented in the dataset (361 samples compared to 654 positive and 571 negative).}
 
 The trend is similar in the few-shot scenario, with substantial improvements for the neutral class observed across several models \rev{(including DeepSeek-R1-8B, which struggles with neutral sentiment under zero-shot conditions but benefits from few-shot examples)}. For example, Gemma-2-27B shows an increase of approximately five percentage points in the neutral category when moving from zero-shot to few-shot prompting. This upside reveals that few-shot prompting enables models to better understand the nuanced linguistic embedding of and context cues in the input text. Because of being exposed to these labelled examples, the models capture ambiguous or mixed sentiment expression much better, and achieve a more balanced performance across sentiment categories.
 
@@ -1167,9 +1165,9 @@ The trend is similar in the few-shot scenario, with substantial improvements for
 \end{figure*}
 
 
-\subsubsection*{LLMs Performance Across Emotion Categories}
+\subsubsection*{LLMs performance across emotion categories}
 
-Fig.\ref{fig:emo_classwise} shows the F1 scores across emotion categories. As we can see in the zero-shot setting, the performance of LLMs is highly heterogeneous on emotion types, from Joy and Fear classes with higher F1 scores to Disgust and Anger categories being more difficult to classify accurately. Qwen-2.5-72B and Gemma-2-27B again show strong performance, except in negative emotions such as Anger and Disgust. While few-shot prompting with Qwen-2.5-72B improves performance by 15\% in the Disgust class compared to zero-shot prompting, it results in a 5\% decrease in the Anger class. This trade-off suggests a potential semantic overlap between expressions of anger and disgust in the dataset, leading the model to occasionally misclassify nuanced emotional cues. This trade-off suggests a potential semantic overlap between expressions of anger and disgust in the dataset, leading the model to occasionally misclassify nuanced emotional cues. \rev{This trade-off suggests a potential semantic overlap between expressions of anger and disgust in the dataset, leading the model to occasionally misclassify nuanced emotional cues.} But all other emotion classes (Joy, Fear, Sadness, Surprise) show significant improvement of more than 5\% than their zero-shot equivalence. We also notice that the Llama-3.2-3B, Mistral-V3-7B, and DeepSeek-R1-8B perform poorly across most of the categories, especially in Anger, Disgust, and Surprise, with both prompting approaches.
+Fig~\ref{fig:emo_classwise} shows the F1 scores across emotion categories. As we can see in the zero-shot setting, the performance of LLMs is highly heterogeneous on emotion types, from Joy and Fear classes with higher F1 scores to Disgust and Anger categories being more difficult to classify accurately. Qwen-2.5-72B and Gemma-2-27B again show strong performance, except in negative emotions such as Anger and Disgust. While few-shot prompting with Qwen-2.5-72B improves performance by 15\% in the Disgust class compared to zero-shot prompting, it results in a 5\% decrease in the Anger class. This trade-off suggests a potential semantic overlap between expressions of anger and disgust in the dataset, leading the model to occasionally misclassify nuanced emotional cues. This trade-off suggests a potential semantic overlap between expressions of anger and disgust in the dataset, leading the model to occasionally misclassify nuanced emotional cues. \rev{This trade-off suggests a potential semantic overlap between expressions of anger and disgust in the dataset, leading the model to occasionally misclassify nuanced emotional cues.} But all other emotion classes (Joy, Fear, Sadness, Surprise) show significant improvement of more than 5\% than their zero-shot equivalence. We also notice that the Llama-3.2-3B, Mistral-V3-7B, and DeepSeek-R1-8B perform poorly across most of the categories, especially in Anger, Disgust, and Surprise, with both prompting approaches.
 
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
@@ -1192,10 +1190,10 @@ Fig.\ref{fig:emo_classwise} shows the F1 scores across emotion categories. As we
 \end{adjustwidth}
 \end{figure*}
 
-\subsubsection*{LLMs Performance Across Hate and Not-Hate Categories}
+\subsubsection*{LLMs performance across hate and not-hate categories}
 \label{sec:hate_classwise}
 
-Fig.~\ref{fig:hate_classwise} presents the class-wise F1-scores for the Hate Speech Detection task under both zero-shot and few-shot prompting settings. In the zero-shot setting, most models, including LLaMA-3.2-3B, struggle to identify the hate class accurately. The results show that several smaller or less multilingual models obtain an F1-score below 50\% for the hate class, while their performance on the not-hate class remains disproportionately high. This pattern suggests that these models tend to prefer safer non-hateful predictions when no labelled examples are provided. Such imbalance indicates that smaller models may have limited ability to capture socially sensitive and context-dependent Bengali expressions. \rev{Similar challenges have been observed in other low-resource languages, where limited representation in pretraining data restricts a model's ability to grasp culturally grounded expressions.}
+Fig~\ref{fig:hate_classwise} presents the class-wise F1-scores for the Hate Speech Detection task under both zero-shot and few-shot prompting settings. In the zero-shot setting, most models, including LLaMA-3.2-3B, struggle to identify the hate class accurately. The results show that several smaller or less multilingual models obtain an F1-score below 50\% for the hate class, while their performance on the not-hate class remains disproportionately high. This pattern suggests that these models tend to prefer safer non-hateful predictions when no labelled examples are provided. Such imbalance indicates that smaller models may have limited ability to capture socially sensitive and context-dependent Bengali expressions. \rev{Similar challenges have been observed in other low-resource languages, where limited representation in pretraining data restricts a model's ability to grasp culturally grounded expressions.}
 
 \rev{Conversely, larger models handle the zero-shot setting more effectively. Under zero-shot prompting, Qwen-2.5-72B achieves an F1-score of 80.6\% for the hate class and 79.2\% for the not-hate class. Similarly, Gemma-2-27B records 79.2\% for the hate class and 73.1\% for the not-hate class.}
 
@@ -1223,10 +1221,10 @@ Fig.~\ref{fig:hate_classwise} presents the class-wise F1-scores for the Hate Spe
 \end{figure*}
 
 
-\subsubsection*{LLMs Performance Across Fake and Real News}
+\subsubsection*{LLMs performance across fake and real news}
 \label{sec:fake_classwise}
 
-Fig.\ref{fig:fake_classwise} presents the class-wise F1-scores for the Fake News Detection task under both zero-shot and few-shot prompting conditions. Under zero-shot setting, most models obtain the F1-score over 70\% in both real and fake classes, which demonstrates they can generalise well without being access to any example with labels. Nonetheless, Mistral-V3-7B is particularly weak at detecting fake news, with an F1-score of only 38.9\% for the fake class. The bigger guys, Gemma-2-27B and Qwen-2.5-72B to have the best performance in both classes, with more than 80\% for each. This result demonstrates their superior performance in discriminating between real and fake content using the Bengali language.
+Fig~\ref{fig:fake_classwise} presents the class-wise F1-scores for the Fake News Detection task under both zero-shot and few-shot prompting conditions. Under zero-shot setting, most models obtain the F1-score over 70\% in both real and fake classes, which demonstrates they can generalise well without being access to any example with labels. Nonetheless, Mistral-V3-7B is particularly weak at detecting fake news, with an F1-score of only 38.9\% for the fake class. The bigger guys, Gemma-2-27B and Qwen-2.5-72B to have the best performance in both classes, with more than 80\% for each. This result demonstrates their superior performance in discriminating between real and fake content using the Bengali language.
 
 Interestingly, the few-shot setting doesn't give an obvious improvement for this task. Smaller by sizes are models, such as DeepSeek-R1-8B obtain slight improvements \rev{(while LLaMA-3.2-3B actually performs worse)}, while the larger models have minor performance decrements. For instance, Gemma-2-27B exhibits F1-scores of 82.1\% and 83.5\%, in the case of the fake and real classes consecutively, versus 82.9\% and 85.7\%, obtained under the zero-shot setup. Similarly, Qwen-2.5-72B \rev{shows a marginal increase from 80.5\% to 81.2\% for the fake class and from 85.4\% to 86.2\% for the real class.} This trend hints that, differently from other tasks, presenting few-shot instances does not largely contribute to the improvement of fake news detection. One possible explanation is that the models already have strong contextual and factual reasoning ability from pretraining, which renders further examples less helpful.
 
@@ -1252,18 +1250,18 @@ Interestingly, the few-shot setting doesn't give an obvious improvement for this
 \end{figure*}
 
 
-\subsection*{Error Analysis}
+\subsection*{Error analysis}
 
 This section analyzes the prediction behavior of the evaluated models using confusion matrices. The objective is to understand the common misclassification patterns and assess how model architecture and prompting strategies affect performance across the four Bengali text classification tasks.
 
-\subsubsection*{Best Performing Models}
+\subsubsection*{Best performing models}
 \label{sec:best_performing_models}
 
-The confusion matrices in Fig.~\ref{fig:confusion_matrices_best} show the performance of the best-performing models. In the sentiment analysis task, Gemma-2-27B is competitive in both few-shot and zero-shot settings. As shown in Fig.~\ref{fig:confusion_matrices_best}(a) and Fig.~\ref{fig:confusion_matrices_best}(b), most samples align along the diagonal, indicating accurate predictions for positive and negative sentiments. A few neutral samples are misclassified as negative, which means that sometimes the model fails to detect mild form of neutrality in the colloquial Bengali text.
+The confusion matrices in Fig~\ref{fig:confusion_matrices_best} show the performance of the best-performing models. In the sentiment analysis task, Gemma-2-27B is competitive in both few-shot and zero-shot settings. As shown in Fig~\ref{fig:confusion_matrices_best}(a) and Fig~\ref{fig:confusion_matrices_best}(b), most samples align along the diagonal, indicating accurate predictions for positive and negative sentiments. A few neutral samples are misclassified as negative, which means that sometimes the model fails to detect mild form of neutrality in the colloquial Bengali text.
 
-For the emotion recognition task, Qwen-2.5-72B demonstrates consistent reliability across major emotion categories, as seen in Fig.~\ref{fig:confusion_matrices_best}(c) and Fig.~\ref{fig:confusion_matrices_best}(d). The model is successful in recognising joy and fear, but the identification of anger and disgust appears not to be as straightforward, possibly due to the similar linguistic cues they typically share. Virtually grounded prompting does give a small boost in performance for rare emotions such as surprise, which suggests that there is some benefit to seeing a small number of examples from the context.
+For the emotion recognition task, Qwen-2.5-72B demonstrates consistent reliability across major emotion categories, as seen in Fig~\ref{fig:confusion_matrices_best}(c) and Fig~\ref{fig:confusion_matrices_best}(d). The model is successful in recognising joy and fear, but the identification of anger and disgust appears not to be as straightforward, possibly due to the similar linguistic cues they typically share. Virtually grounded prompting does give a small boost in performance for rare emotions such as surprise, which suggests that there is some benefit to seeing a small number of examples from the context.
 
-In the hate speech detection task, Fig.~\ref{fig:confusion_matrices_best}(e) and Fig.~\ref{fig:confusion_matrices_best}(f) show that Qwen-2.5-72B achieves balanced classification between hate and not-hate categories. The few-shot setting improves recall for the hate class, helping the model detect implicit or context-dependent hostility expressed in Bengali. In the fake news detection task, shown in Fig.~\ref{fig:confusion_matrices_best}(g) and Fig.~\ref{fig:confusion_matrices_best}(h), Gemma-2-27B achieves high precision for both fake and real content with minimal off-diagonal errors. This consistency demonstrates that the model effectively uses linguistic and contextual cues to separate factual information from misinformation.
+In the hate speech detection task, Fig~\ref{fig:confusion_matrices_best}(e) and Fig~\ref{fig:confusion_matrices_best}(f) show that Qwen-2.5-72B achieves balanced classification between hate and not-hate categories. The few-shot setting improves recall for the hate class, helping the model detect implicit or context-dependent hostility expressed in Bengali. In the fake news detection task, shown in Fig~\ref{fig:confusion_matrices_best}(g) and Fig~\ref{fig:confusion_matrices_best}(h), Gemma-2-27B achieves high precision for both fake and real content with minimal off-diagonal errors. This consistency demonstrates that the model effectively uses linguistic and contextual cues to separate factual information from misinformation.
 
 Overall, the best-performing models display clear diagonal concentration with very few misclassifications, confirming their strong contextual and linguistic understanding of Bengali text. Their advantage is likely due to larger parameter counts and extensive multilingual pre-training, which improve their adaptability to low-resource languages.
 
@@ -1319,14 +1317,14 @@ Overall, the best-performing models display clear diagonal concentration with ve
 
 
 
-\subsubsection*{Worst Performing Models}
+\subsubsection*{Worst performing models}
 \label{sec:worst_performing_models}
 
-Fig.~\ref{fig:confusion_matrices_worst} presents the confusion matrices for the least effective models. In sentiment analysis, shown in Fig.~\ref{fig:confusion_matrices_worst}(a) and Fig.~\ref{fig:confusion_matrices_worst}(b), LLaMA-3.2-3B and Mistral-V3-7B display significant confusion between neutral and negative samples, with weak diagonal concentration. This suggests that smaller models lack sufficient semantic depth to capture subtle tonal shifts in Bengali sentiment expressions.
+Fig~\ref{fig:confusion_matrices_worst} presents the confusion matrices for the least effective models. In sentiment analysis, shown in Fig~\ref{fig:confusion_matrices_worst}(a) and Fig~\ref{fig:confusion_matrices_worst}(b), LLaMA-3.2-3B and Mistral-V3-7B display significant confusion between neutral and negative samples, with weak diagonal concentration. This suggests that smaller models lack sufficient semantic depth to capture subtle tonal shifts in Bengali sentiment expressions.
 
-For emotion recognition, Fig.~\ref{fig:confusion_matrices_worst}(c) and~\ref{fig:confusion_matrices_worst}(d) show that Mistral-V3-7B and DeepSeek-R1-8B produce scattered distributions with frequent overlaps between sadness, disgust, and anger. The few-shot configuration yields limited improvement, suggesting that model capacity, rather than exposure to examples, limits emotional differentiation..
+For emotion recognition, Fig~\ref{fig:confusion_matrices_worst}(c) and~\ref{fig:confusion_matrices_worst}(d) show that Mistral-V3-7B and DeepSeek-R1-8B produce scattered distributions with frequent overlaps between sadness, disgust, and anger. The few-shot configuration yields limited improvement, suggesting that model capacity, rather than exposure to examples, limits emotional differentiation..
 
-In the hate speech detection task (Fig.~\ref{fig:confusion_matrices_worst}(e) and~\ref{fig:confusion_matrices_worst}(f)), both DeepSeek-R1-8B and LLaMA-3.2-3B misclassify many hateful statements as not-hate. \rev{This pattern suggests that the models may be relatively conservative when identifying hate speech, leading to a higher number of false negatives. However, the underlying causes of these errors cannot be conclusively determined from the confusion matrices alone and would require further qualitative error analysis.} Finally, for fake news detection, shown in Fig.~\ref{fig:confusion_matrices_worst}(g) and Fig.~\ref{fig:confusion_matrices_worst}(h), Mistral-V3-7B struggles to detect fabricated content, frequently identifying fake instances as real. These scattered prediction patterns demonstrate the limited generalization capability of smaller or less optimised models.
+In the hate speech detection task (Fig~\ref{fig:confusion_matrices_worst}(e) and~\ref{fig:confusion_matrices_worst}(f)), both DeepSeek-R1-8B and LLaMA-3.2-3B misclassify many hateful statements as not-hate. \rev{This pattern suggests that the models may be relatively conservative when identifying hate speech, leading to a higher number of false negatives. However, the underlying causes of these errors cannot be conclusively determined from the confusion matrices alone and would require further qualitative error analysis.} Finally, for fake news detection, shown in Fig~\ref{fig:confusion_matrices_worst}(g) and Fig~\ref{fig:confusion_matrices_worst}(h), Mistral-V3-7B struggles to detect fabricated content, frequently identifying fake instances as real. These scattered prediction patterns demonstrate the limited generalization capability of smaller or less optimised models.
 
 
 
@@ -1380,7 +1378,7 @@ In the hate speech detection task (Fig.~\ref{fig:confusion_matrices_worst}(e) an
 \end{figure*}
 
 
-\subsection*{Qualitative Linguistic Error Analysis}
+\subsection*{Qualitative linguistic error analysis}
 
 \rev{While confusion matrices provide a quantitative overview of model performance, a manual examination of misclassified instances revealed several recurring linguistic challenges in Bengali text classification.}
 
@@ -1396,18 +1394,18 @@ In the hate speech detection task (Fig.~\ref{fig:confusion_matrices_worst}(e) an
 
 
 
-\subsection*{Receiver Operating Characteristic (ROC-AUC) Analysis}
+\subsection*{Receiver operating characteristic (ROC-AUC) analysis}
 \label{sec:roc_auc_analysis}
 
-In this section, we evaluate the discriminative performance of the models using confusion matrix analysis, ROC curves, and AUC scores. The ROC–AUC score attempts to present a fair judgment to compare models' ability to distinguish between classes across different prompting strategies. \rev{For multiclass classification tasks (e.g., Sentiment Analysis, Emotion Recognition), the One-vs-Rest (OvR) strategy is employed to calculate the area under the ROC curve (AUC), where each class is iteratively treated as the positive class against all others.} Fig.~\ref{fig:roc_auc_analysis} illustrates the ROC–AUC results for all four Bengali text classification tasks under both zero-shot and few-shot conditions.
+In this section, we evaluate the discriminative performance of the models using confusion matrix analysis, ROC curves, and AUC scores. The ROC–AUC score attempts to present a fair judgment to compare models' ability to distinguish between classes across different prompting strategies. \rev{For multiclass classification tasks (e.g., Sentiment Analysis, Emotion Recognition), the One-vs-Rest (OvR) strategy is employed to calculate the area under the ROC curve (AUC), where each class is iteratively treated as the positive class against all others.} Fig~\ref{fig:roc_auc_analysis} illustrates the ROC–AUC results for all four Bengali text classification tasks under both zero-shot and few-shot conditions.
 
-As shown in Fig.~\ref{fig:roc_auc_analysis}(a) and Fig.~\ref{fig:roc_auc_analysis}(b), the sentiment analysis task \rev{reveals poor to acceptable discrimination for the evaluated models}, with AUC values ranging from 0.63 to 0.72. Gemma-2-27B achieves the highest AUC of 0.72 in the few-shot setting, followed closely by Qwen-2.5-72B (0.70), demonstrating more confident and stable classification boundaries. Smaller models such as LLaMA-3.2-3B and Mistral-V3-7B show weaker discrimination, indicating difficulties in capturing subtle sentiment cues in Bengali.
+As shown in Fig~\ref{fig:roc_auc_analysis}(a) and Fig~\ref{fig:roc_auc_analysis}(b), the sentiment analysis task \rev{reveals poor to acceptable discrimination for the evaluated models}, with AUC values ranging from 0.63 to 0.72. Gemma-2-27B achieves the highest AUC of 0.72 in the few-shot setting, followed closely by Qwen-2.5-72B (0.70), demonstrating more confident and stable classification boundaries. Smaller models such as LLaMA-3.2-3B and Mistral-V3-7B show weaker discrimination, indicating difficulties in capturing subtle sentiment cues in Bengali.
 
-For the emotion recognition task (Fig.~\ref{fig:roc_auc_analysis}(c) and Fig.~\ref{fig:roc_auc_analysis}(d)), all models get a higher AUC value than that of the sentiment task. As shown in the few-shot setting, Qwen-2.5-72B and Gemma-2-27B achieve higher 0.81 and 0.80 than others, revealing their healthy discriminative power on emotional tone. While Phi-4-14B also maintains a competitive AUC at 0.77, smaller models fail to consistently capture sensitivity between groups of emotion classes.
+For the emotion recognition task (Fig~\ref{fig:roc_auc_analysis}(c) and Fig~\ref{fig:roc_auc_analysis}(d)), all models get a higher AUC value than that of the sentiment task. As shown in the few-shot setting, Qwen-2.5-72B and Gemma-2-27B achieve higher 0.81 and 0.80 than others, revealing their healthy discriminative power on emotional tone. While Phi-4-14B also maintains a competitive AUC at 0.77, smaller models fail to consistently capture sensitivity between groups of emotion classes.
 
-In hate speech detection (Fig.~\ref{fig:roc_auc_analysis}(e) and Fig.~\ref{fig:roc_auc_analysis}(f)), Gemma-2-27B and Qwen-2.5-72B outperform the other ones with few-shot AUCs higher than 0.74 and 0.78, respectively. This improvement highlights the benefit of in-context learning for sensitive social classification tasks where context and tone are important factors. By contrast, LLaMA-3.2-3B gets a low AUC of only 0.57 in the zero-shot setting, indicating that LLaMA-3.2-3B is less strong in detecting offensive or hateful content.
+In hate speech detection (Fig~\ref{fig:roc_auc_analysis}(e) and Fig~\ref{fig:roc_auc_analysis}(f)), Gemma-2-27B and Qwen-2.5-72B outperform the other ones with few-shot AUCs higher than 0.74 and 0.78, respectively. This improvement highlights the benefit of in-context learning for sensitive social classification tasks where context and tone are important factors. By contrast, LLaMA-3.2-3B gets a low AUC of only 0.57 in the zero-shot setting, indicating that LLaMA-3.2-3B is less strong in detecting offensive or hateful content.
 
-The fake news detection task (Fig.~\ref{fig:roc_auc_analysis}(g) and Fig.~\ref{fig:roc_auc_analysis}(h)) obtains the highest AUC values in all tasks. Both Gemma-2-27B and Qwen-2.5-72B obtain 0.84 in the two versions, prompting, indicating a good discriminative level for real and fake text. This consistent line of results further confirms that the larger multilingual LLMs are indeed more capable to identify misinformation due to their access to a wider range of facts and contexts.
+The fake news detection task (Fig~\ref{fig:roc_auc_analysis}(g) and Fig~\ref{fig:roc_auc_analysis}(h)) obtains the highest AUC values in all tasks. Both Gemma-2-27B and Qwen-2.5-72B obtain 0.84 in the two versions, prompting, indicating a good discriminative level for real and fake text. This consistent line of results further confirms that the larger multilingual LLMs are indeed more capable to identify misinformation due to their access to a wider range of facts and contexts.
 
 \begin{figure*}[!t]
 \begin{adjustwidth}{-2.25in}{0in}
@@ -1462,7 +1460,7 @@ The fake news detection task (Fig.~\ref{fig:roc_auc_analysis}(g) and Fig.~\ref{f
 \section*{Discussion}
 \label{sec:discussion}
 
-This section provides a summary based on the observations and errors of the results, discussing some of the trends related to performance in all tasks across various LLMs under zero-shot and few-shot prompting. The tendency of the general performance is shown in Fig.~\ref{fig:classwise_performance}. The easiest task among those analysed is Fake News detection, which reaches high F1-scores in all models regardless of the dataset used; Emotion Recognition remains as the toughest one. Overall, few-shot prompting significantly enhances model performance, especially in Emotion and Hate Speech detection, emphasising the significance of contextualised learning. \rev{In addition, larger models like Qwen-2.5-72B and Gemma-2-27B are uniformly superior on all tasks. While Qwen-2.5-72B leverages its extensive multilingual pretraining, Gemma-2-27B demonstrates that sheer model scale and architectural efficiency can compensate for a pretraining corpus primarily focused on English.}
+This section provides a summary based on the observations and errors of the results, discussing some of the trends related to performance in all tasks across various LLMs under zero-shot and few-shot prompting. The tendency of the general performance is shown in Fig~\ref{fig:classwise_performance}. The easiest task among those analysed is Fake News detection, which reaches high F1-scores in all models regardless of the dataset used; Emotion Recognition remains as the toughest one. Overall, few-shot prompting significantly enhances model performance, especially in Emotion and Hate Speech detection, emphasising the significance of contextualised learning. \rev{In addition, larger models like Qwen-2.5-72B and Gemma-2-27B are uniformly superior on all tasks. While Qwen-2.5-72B leverages its extensive multilingual pretraining, Gemma-2-27B demonstrates that sheer model scale and architectural efficiency can compensate for a pretraining corpus primarily focused on English.}
 
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
@@ -1490,7 +1488,7 @@ Few-shot learning effect is task-dependent. It proves effective for sentiment an
 In addition to these discoveries, the analysis yields other overarching conclusions.  Recognizing emotions is still the hardest thing to do because many Bengali ways of showing emotions are quite peculiar to their culture or situation.  In real conversation, the lines between feelings like anger, disgust, and melancholy are typically very thin, which makes it harder for models to tell them apart without clear instances.  On the other hand, Qwen-2.5-72B and Gemma-2-27B consistently perform well. \rev{Qwen-2.5-72B benefits from superior multilingual pretraining and better representation of Indic scripts. While Gemma-2-27B was trained primarily on English data and not explicitly optimized for multilingual state-of-the-art performance, its sheer scale and architectural efficiency still allow it to perform robustly on Bengali tasks.}  These traits let them pick up on morphological changes, compound forms, and subtle semantic differences that smaller models don't always catch.  More broadly, the results show that there are some important rules for low-resource NLP: model scale alone isn't enough; it's important to have a variety of multilingual data; in-context examples are especially useful for tasks that involve fine-grained linguistic signals; and balanced evaluation datasets are important for fair comparison across LLMs.  These results show that Bengali NLP will only get better in the future if there are more language-specific resources and better multilingual training pipelines.
 
 
-\subsection*{Implications for Low-Resource Language NLP}
+\subsection*{Implications for low-resource language NLP}
 
 Findings from this research study carry several crucial results for furthering NLP in languages with low-resources like Bengali. First, the wide gap in performance between large-scale models (Qwen-2.5-72B and Gemma-2-27B) and small ones (LLaMA-3.2-3B and Mistral-V3-7B) proves that large model sizes continue to play a decisive role in dealing with the arithmetic diversity and morphological complexity of languages. But this also results in an accessibility challenge, as it remains a significant obstacle for many researchers and institutions working in resource-constrained environments the computational and hardware requirements of big models.
 
@@ -1518,10 +1516,10 @@ Finally, although we focus on quantitative performance measures (i.e., accuracy 
 
 A comprehensive evaluation of six open-source Large Language Models (LLMs)—LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B is presented with this research, where four Bengali text classification tasks are evaluated, such as sentiment analysis, emotion recognition, hate-speech detection, and fake-news detection. For ensuring equal and consistent comparisons, both zero-shot and few-shot prompting strategies were applied along with vLLM. The outcome of this research is that it sheds light on the fact that the larger multilingual models constantly surpass smaller ones across all tasks. With a zero-shot setting, the best-performing model on hate-speech detection is Qwen-2.5-72B with 79.90\% accuracy and a \rev{Macro-F1} score of 79.88\%, whereas for fake-news classification, 84.45\% accuracy is achieved with Gemma-2-27B as well as an 84.33\% \rev{Macro-F1} score. After a few-shot prompt was applied, Gemma-2-27B maintained strong performance on fake-news detection with a \rev{Macro-F1} score of 84.17\%. Qwen-2.5-72B achieved the best emotion-recognition result, reaching a \rev{Macro-F1} score of \rev{78.25\%}. These results suggest that the size of the model, the quality of multilingual pretraining, and the use of in-context examples all play an important role in improving performance for low-resource languages such as Bengali.
 
-\subsection*{Future Work}
+\subsection*{Future work}
 Though the findings are pretty favourable, several issues still need careful attention. A difficulty is seen among the models that are working to classify the neutral as well as the negative statement, and they also frequently lump together emotions with similar meanings, such as anger and disgust, as well as misleading statements, which are also labelled as real. These mechanisms can be strengthened further in the future. For improving the ability of the model, approaches that are improved should be applied, such as step-by-step reasoning or the use of external information sources. With an intention to improve the performance, along with the requirement of not using expensive hardware, Lightweight fine-tuning approaches such as LoRA or QLoRA can be applied. In order to acquire an improved awareness of their overall capabilities and limits, a broader set of NLP tasks, for instance, text generation, summarisation, and question answering, should be tested as well. Additionally, retaining the NLP system, which is a blessing for Bangali users, should pay great attention to its fairness across different social and demographic groups. With a view to improving further, larger and more diverse datasets should be introduced, which could be a great help to Bangali NLP tool users.
 
-\section*{Author Contributions}
+\section*{Author contributions}
 
 \textbf{Conceptualization:} Md. Hamid Hosen, Khair Razlan Bin Othman.
 
