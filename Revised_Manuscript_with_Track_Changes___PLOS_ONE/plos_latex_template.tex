@@ -1466,9 +1466,9 @@ This section provides a summary based on the observations and errors of the resu
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
     \centering
-    \subfloat[Zero-shot setting]{\includegraphics[width=0.45\linewidth]{5_zero_shot.png}}
+    \subfloat[Zero-shot setting]{\includegraphics[width=0.48\linewidth]{5_zero_shot.png}}
     \hfill
-    \subfloat[Few-shot setting]{\includegraphics[width=0.52\linewidth]{6_few_shot.png}}
+    \subfloat[Few-shot setting]{\includegraphics[width=0.48\linewidth]{6_few_shot.png}}
     \caption{LLMs' performance with two prompt settings across various classification tasks.}
     \label{fig:classwise_performance}
 \end{adjustwidth}
@@ -1479,7 +1479,7 @@ Small models Mistral-V3-7B, Phi-4-14B, and DeepSeek-R1-8B perform relatively les
 Differences in model behaviour are also evident at the task level. Sentiment analysis is relatively simple yet only achieves moderate results, i.e. best models obtain 62--63\% F1 scores. The conundrum is how to distinguish neutral orientation from the negative one, as could be seen in the confusion matrix result. \rev{It should also be noted that the SentiNoB dataset exhibits class imbalance, containing 654 positive samples, 571 negative samples, and only 361 neutral samples. Therefore, the relatively lower F1-scores observed for the neutral class may be influenced not only by model limitations but also by the unequal class distribution. The reduced representation of neutral samples may make it more difficult for LLMs to accurately identify the characteristics of this category. Consequently, class imbalance should be considered a potential contributing factor when interpreting neutral-class performance.} The emotion recognition still remains the most challenging task, while the state-of-the-art method yields 65.76\% F1-score in the few-shot scenario. This limitation might be due to the fine-grained nature of our task where we have to discriminate between six very similar feelings that often share overlapping characteristics in Bengali.
 
 
-Results of hate speech detection are more promising, with state-of-the-art approaches approaching 80\% F1-score. The binary nature of the task, and better linguistic cues for hate speech make it relatively easier. However, the error analysis also indicates a small over-prediction as compared to the hateful labels that may imply a conservative classification approach, good for moderation, but prone to raising false positives. Fake News detection is the most tractable task, with F1-scores over 84\% across different models. This high accuracy is most likely due to the clear stylistic and factual differences between real and fake articles.
+Results of hate speech detection are more promising, with state-of-the-art approaches approaching 80\% F1-score. The binary nature of the task, and better linguistic cues for hate speech make it relatively easier. However, the error analysis also indicates a small over-prediction as compared to the hateful labels that may imply a conservative classification approach, good for moderation, but prone to raising false positives. \rev{Fake News detection is the most tractable task, with the best-performing models achieving F1-scores over 84\%.} This high accuracy is most likely due to the clear stylistic and factual differences between real and fake articles.
 
 Few-shot learning effect is task-dependent. It proves effective for sentiment analysis, hate speech detection, and emotion recognition consistently, while its impact is constrained or slightly negative regarding fake news detection. This tendency indicates that fake news detection benefits mostly from previous knowledge of facts and pretrained representations, rather than from abundant in-context examples. On the other hand, ones requiring fine-grained tones or affects such as sentiment or emotion classification benefit significantly from just a few labelled examples; this provides strong evidence for the importance of in-context learning in linguistic subtlety under low-resource settings.
 
