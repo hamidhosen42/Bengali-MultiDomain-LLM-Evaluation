@@ -1195,11 +1195,11 @@ Fig.\ref{fig:emo_classwise} shows the F1 scores across emotion categories. As we
 \subsubsection*{LLMs Performance Across Hate and Not-Hate Categories}
 \label{sec:hate_classwise}
 
-Fig.\ref{fig:hate_classwise} presents the class-wise F1-scores for the Hate Speech Detection task under both zero-shot and few-shot prompting settings. In the zero-shot setting, almost all the models, including LLaMA-3.2-3B, struggle to identify the hate class accurately. Our analysis reveals the incapacity of such models \rev{(unlike Qwen-2.5-72B, Mistral-V3-7B, and DeepSeek-R1-8B)} to correctly identify the hate class as models obtain an F1-score under 50\% in most cases. Still, their accuracy on the not-hate class is disproportionately high, suggesting that the model strongly prefers non-hateful (or safer) predictions in the absence of labelled examples. This disparity indicates that smaller-sized or less multilingual models do not generalise to socially sensitive language situations in Bengali very well. \rev{Similar challenges have been observed in other low-resource languages, where limited representation in pretraining data restricts a model's ability to grasp context-dependent cultural expressions.}
+Fig.~\ref{fig:hate_classwise} presents the class-wise F1-scores for the Hate Speech Detection task under both zero-shot and few-shot prompting settings. In the zero-shot setting, most models, including LLaMA-3.2-3B, struggle to identify the hate class accurately. The results show that several smaller or less multilingual models obtain an F1-score below 50\% for the hate class, while their performance on the not-hate class remains disproportionately high. This pattern suggests that these models tend to prefer safer non-hateful predictions when no labelled examples are provided. Such imbalance indicates that smaller models may have limited ability to capture socially sensitive and context-dependent Bengali expressions. \rev{Similar challenges have been observed in other low-resource languages, where limited representation in pretraining data restricts a model's ability to grasp culturally grounded expressions.}
 
-\rev{Conversely, larger models handle the zero-shot setting much better. For instance, under zero-shot prompting, Qwen-2.5-72B achieves an F1-score of 80.6\% for the hate class and 79.2\% for the not-hate class. Similarly, Gemma-2-27B records 79.2\% for the hate class and 73.1\% for the not-hate class. 
+\rev{Conversely, larger models handle the zero-shot setting more effectively. Under zero-shot prompting, Qwen-2.5-72B achieves an F1-score of 80.6\% for the hate class and 79.2\% for the not-hate class. Similarly, Gemma-2-27B records 79.2\% for the hate class and 73.1\% for the not-hate class.}
 
-When transitioning to the few-shot setting, we observe a clear improvement in the overall Macro-F1 score for models that initially struggled or had moderate performance, such as LLaMA-3.2-3B and Phi-4-14B. These results show that few-shot prompting helps these models better detect both explicit and implicit hate expressions while maintaining balanced classification. However, for the larger multilingual models like Qwen-2.5-72B and Gemma-2-27B, the difference between their zero-shot and few-shot performance is relatively small, suggesting that these models already have a strong contextual understanding even before additional examples are provided.}
+\rev{In the few-shot setting, models that initially showed weak or moderate performance, such as LLaMA-3.2-3B and Phi-4-14B, demonstrate clear improvements in macro F1-score. These results indicate that few-shot prompting helps models detect both explicit and implicit hate expressions while maintaining more balanced classification. However, for larger multilingual models such as Qwen-2.5-72B and Gemma-2-27B, the performance gap between zero-shot and few-shot settings is relatively small, suggesting that these models already possess stronger contextual understanding before additional examples are provided.}
 
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
@@ -1273,30 +1273,30 @@ Overall, the best-performing models display clear diagonal concentration with ve
 
 % -------- Row 1 --------
 \subfloat[Gemma-2-27B (Few-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_few_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_few_best_model.png}
 }
 \hfill
 \subfloat[Gemma-2-27B (Zero-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_zero_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_zero_best_model.png}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Few-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_few_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_few_best_model.png}
 }
 
 \vspace{0.3cm}
 
 % -------- Row 2 --------
 \subfloat[Qwen-2.5-72B (Zero-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_zero_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_zero_best_model.png}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Few-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_few_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_few_best_model.png}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Zero-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_zero_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_zero_best_model.png}
 }
 
 \vspace{0.3cm}
@@ -1304,11 +1304,11 @@ Overall, the best-performing models display clear diagonal concentration with ve
 % -------- Row 3 (CENTERED) --------
 \makebox[\textwidth][c]{%
 \subfloat[Gemma-2-27B (Few-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_few_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_few_best_model.png}
 }
 \hspace{1.2cm}
 \subfloat[Gemma-2-27B (Zero-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_zero_best_model.jpg}
+    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_zero_best_model.png}
 }}
 
 \caption{Confusion matrices of top LLMs on Bengali text classification tasks under zero- and few-shot settings.}
@@ -1326,7 +1326,7 @@ Fig.~\ref{fig:confusion_matrices_worst} presents the confusion matrices for the 
 
 For emotion recognition, Fig.~\ref{fig:confusion_matrices_worst}(c) and~\ref{fig:confusion_matrices_worst}(d) show that Mistral-V3-7B and DeepSeek-R1-8B produce scattered distributions with frequent overlaps between sadness, disgust, and anger. The few-shot configuration yields limited improvement, suggesting that model capacity, rather than exposure to examples, limits emotional differentiation.
 
-In the hate speech detection task (Fig.~\ref{fig:confusion_matrices_worst}(e) and~\ref{fig:confusion_matrices_worst}(f)), both DeepSeek-R1-8B and LLaMA-3.2-3B misclassify many hateful statements as not-hate. This reflects a cautious prediction bias, where the models avoid labelling a text as hateful unless explicit aggression is present. \rev{For example, sentences expressing disagreement without vulgarity are often misclassified as non-hate by these models.} Finally, for fake news detection, shown in Fig.~\ref{fig:confusion_matrices_worst}(g) and Fig.~\ref{fig:confusion_matrices_worst}(h), Mistral-V3-7B struggles to detect fabricated content, frequently identifying fake instances as real. These scattered prediction patterns demonstrate the limited generalization capability of smaller or less optimised models.
+In the hate speech detection task (Fig.~\ref{fig:confusion_matrices_worst}(e) and~\ref{fig:confusion_matrices_worst}(f)), both DeepSeek-R1-8B and LLaMA-3.2-3B misclassify many hateful statements as not-hate. This reflects a cautious prediction bias, where the models avoid labelling a text as hateful unless explicit aggression is present. \rev{For example, implicit hate speech or political slurs, such as ``কুকুর লীগের বিচার একদিন হবেই'' (The dog league will face justice one day), lack explicit vulgarity and are often misclassified as non-hate by these models.} Finally, for fake news detection, shown in Fig.~\ref{fig:confusion_matrices_worst}(g) and Fig.~\ref{fig:confusion_matrices_worst}(h), Mistral-V3-7B struggles to detect fabricated content, frequently identifying fake instances as real. These scattered prediction patterns demonstrate the limited generalization capability of smaller or less optimised models.
 
 
 \begin{figure*}[!t]
@@ -1335,30 +1335,30 @@ In the hate speech detection task (Fig.~\ref{fig:confusion_matrices_worst}(e) an
 
 % -------- Row 1: Sentiment --------
 \subfloat[LLaMA-3.2-3B (Zero-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_llama_conf_zero_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/1_senti_llama_conf_zero_worst_model.png}
 }
 \hfill
 \subfloat[Mistral-V3-7B (Few-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_mistral_conf_few_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/1_senti_mistral_conf_few_worst_model.png}
 }
 \hfill
 \subfloat[Mistral-V3-7B (Zero-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.png}
 }
 
 \vspace{0.3cm}
 
 % -------- Row 2: Emotion + Hate --------
 \subfloat[DeepSeek-R1-8B (Few-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_deep_conf_few_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/2_emo_deep_conf_few_worst_model.png}
 }
 \hfill
 \subfloat[DeepSeek-R1-8B (Few-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_deep_conf_few_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/3_hate_deep_conf_few_worst_model.png}
 }
 \hfill
 \subfloat[LLaMA-3.2-3B (Zero-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_llama_conf_zero_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/3_hate_llama_conf_zero_worst_model.png}
 }
 
 \vspace{0.3cm}
@@ -1366,11 +1366,11 @@ In the hate speech detection task (Fig.~\ref{fig:confusion_matrices_worst}(e) an
 % -------- Row 3: Fake News (CENTERED TWO IMAGES) --------
 \makebox[\textwidth][c]{%
 \subfloat[Mistral-V3-7B (Few-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_few_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_few_worst_model.png}
 }
 \hspace{1.2cm}
 \subfloat[Mistral-V3-7B (Zero-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_zero_worst_model.jpg}
+    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_zero_worst_model.png}
 }}
 
 \caption{Confusion matrices of low-performing LLMs showing misclassification patterns in Bengali tasks.}
