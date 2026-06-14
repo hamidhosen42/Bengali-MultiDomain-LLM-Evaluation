@@ -102,7 +102,7 @@
 \usepackage[right]{lineno}
 
 % ligatures disabled
-\usepackage[nopatch=eqnum]{microtype}
+\usepackage[nopatch={eqnum,footnote}]{microtype}
 % Disabled for XeLaTeX/Bengali Unicode support
 
 % color can be used to apply background shading to table cells only
@@ -226,7 +226,7 @@ E-mail: khair.othman@mmu.edu.my (KRBO)
 
 
 \section*{Abstract}
-Large Language Models (LLMs) have advanced multilingual NLP significantly, yet their effectiveness for Bengali, a globally important but low-resource language, remains understudied due to limited linguistic resources and the absence of a standardized evaluation benchmark. This is due to the unavailability of large linguistic resources and the lack of a standard benchmarking framework, which has yet to be established. This study aims to address the underrepresentation of Bengali text classification by leading a systematic evaluation. It involves assessing multiple open-access LLMs on Bengali text classification tasks and observing their limitations and regular error patterns. The procedure consists of six open-source LLMs, which include LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B, and are evaluated using four critical text classification tasks in Bengali, namely sentiment analysis, emotion recognition, hate-speech detection, and fake-news classification. Furthermore, two prompting methods are compared in the context of zero-shot and few-shot prompting using the vLLM model to investigate the adaptability of the model in resource-limited settings. The outcomes of our study indicate that, regardless of the dataset, the bigger multilingual models always performed better in comparison with the smaller ones. When training in zero-shot, Qwen-2.5-72B showed the best performance at 79.90\% accuracy and 79.88\% \rev{Macro-F1} score, showing amazing accuracy on hate-speech detection. In the case of fake news, Gemma-2-27B performed best at 84.45\% accuracy and 84.33\% \rev{Macro-F1} score. With a few-shot set-up, Gemma-2-27B and Qwen-2.5-72B demonstrated a high level of performance in terms of \rev{Macro-F1} score, reaching 84.17\% for fake-news detection and \rev{78.25\%} for emotion recognition, respectively. After the final observation, the study reveals that the model size, quality of multilingual pretraining, and contextual samples have a vital impact in low-resource settings.
+Large Language Models (LLMs) have advanced multilingual NLP significantly, yet their effectiveness for Bengali, a globally important but low-resource language, remains understudied due to limited linguistic resources and the absence of a standardized evaluation benchmark. This is due to the unavailability of large linguistic resources and the lack of a standard benchmarking framework, which has yet to be established. This study aims to address the underrepresentation of Bengali text classification by leading a systematic evaluation. It involves assessing multiple open-access LLMs on Bengali text classification tasks and observing their limitations and regular error patterns. The procedure consists of six open-source LLMs, which include LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B, and are evaluated using four critical text classification tasks in Bengali, namely sentiment analysis, emotion recognition, hate-speech detection, and fake-news classification. Furthermore, two prompting methods are compared in the context of zero-shot and few-shot prompting using both the vLLM inference engine and Hugging Face Transformers pipelines to investigate the adaptability of the models in resource-limited settings. The outcomes of our study indicate that, regardless of the dataset, the bigger multilingual models always performed better in comparison with the smaller ones. When training in zero-shot, Qwen-2.5-72B showed the best performance at 79.90\% accuracy and 79.88\% \rev{Macro-F1} score, showing amazing accuracy on hate-speech detection. In the case of fake news, Gemma-2-27B performed best at 84.45\% accuracy and 84.33\% \rev{Macro-F1} score. With a few-shot set-up, Gemma-2-27B and Qwen-2.5-72B demonstrated a high level of performance in terms of \rev{Macro-F1} score, reaching 84.17\% for fake-news detection and \rev{78.25\%} for emotion recognition, respectively. After the final observation, the study reveals that the model size, quality of multilingual pretraining, and contextual samples have a vital impact in low-resource settings.
 
 
 % \section*{Author summary}
@@ -262,7 +262,8 @@ This research presents several noteworthy contributions to the rising field of t
 \begin{enumerate}
     \item \textbf{Comprehensive Evaluation:} We perform a comprehensive evaluation of six of the latest publicly accessible LLMs: LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B, on four types of Bengali text classification tasks: sentiment analysis, emotion recognition, hate speech detection, and fake news classification.
     
-    \item \textbf{Unified Prompting Framework:} We apply a systematic evaluation pipeline utilizing the vLLM structure, while using zero-shot and few-shot prompting to maintain consistency and reproducibility over the models' experiments.
+    \item \textbf{Unified Prompting Framework:} We apply a systematic evaluation pipeline utilizing both the vLLM inference engine and Hugging Face Transformers pipelines, while using zero-shot and few-shot prompting to maintain consistency and reproducibility over the models' experiments.
+    
     
     \item \textbf{Performance Insights:} The overall outcome highlights the significantly better performance of the larger multilingual models (like Qwen-2.5-72B, Gemma-2-27B), specifically in complicated tasks (like emotion recognition), in contrast to smaller models. This shows the significance of model scale and multilingual model training.
     
@@ -288,7 +289,7 @@ Recent years have witnessed substantial progress in Bengali natural language pro
 \begin{table*}[!t]
 \begin{adjustwidth}{-2.25in}{0in}
 \centering
-\caption{Summary of recent studies on Bengali LLMs, benchmarks, and text classification.}
+\caption{\rev{Summary of recent studies on Bengali LLMs, benchmarks, and text classification.}}
 \label{tab:bangla_llm_progress}
 \small
 \renewcommand{\arraystretch}{1.08}
@@ -362,7 +363,7 @@ language understanding and text classification.}
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
     \centering
-    \includegraphics[width=\linewidth]{methodology/prompt-methodology.png}
+    % \includegraphics[width=\linewidth]{methodology/prompt-methodology.tif}
     \caption{Overall methodology illustrating the evaluation framework for six open-source LLMs across four Bengali text classification tasks under zero-shot and few-shot prompting}
     \label{fig:prompt-methodology}
 \end{adjustwidth}
@@ -394,6 +395,7 @@ Fake News Detection & BanFakeNews~\cite{b34} & 2 & 508 \\\hline
 
 \subsubsection*{Sentiment analysis}
 The SentiNoB~\cite{b31} dataset was used for sentiment analysis. This dataset consists of three categories collected from social media and annotated into positive, negative, and neutral. The categories contain 1586 samples, where positive was 654, negative was 571, and neutral was 361.
+
 
 \subsubsection*{Emotion recognition}
 The BEmoC dataset~\cite{b32} was used for emotion recognition analysis. The dataset was annotated into six categories: joy, anger, disgust, sadness, surprise, and fear. As usual, this dataset was gathered from social networking sites. The test set comprises 625 samples \rev{and is highly imbalanced across the classes (e.g., 165 samples for disgust versus only 71 for anger), reflecting the natural distribution of emotional text on social media.}
@@ -739,7 +741,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-senti_zero_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-senti_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali sentiment analysis.}
 \label{fig:senti_zero_prompt}
 \end{minipage}
@@ -749,7 +751,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-emo_zero_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-emo_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali emotion recognition.}
 \label{fig:emo_zero_prompt}
 \end{minipage}
@@ -759,7 +761,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-hate_zero_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-hate_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali hate speech detection.}
 \label{fig:hate_zero_prompt}
 \end{minipage}
@@ -769,7 +771,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-fake_zero_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-fake_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali fake news detection.}
 \label{fig:fake_zero_prompt}
 \end{minipage}
@@ -779,7 +781,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-senti_few_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-senti_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali sentiment analysis.}
 \label{fig:senti_few_prompt}
 \end{minipage}
@@ -789,7 +791,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-emo_few_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-emo_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali emotion recognition.}
 \label{fig:emo_few_prompt}
 \end{minipage}
@@ -799,7 +801,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-hate_few_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-hate_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali hate speech detection.}
 \label{fig:hate_few_prompt}
 \end{minipage}
@@ -809,7 +811,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-fake_few_prompt.jpg}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-fake_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali fake news detection.}
 \label{fig:fake_few_prompt}
 \end{minipage}
@@ -818,12 +820,13 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \subsection*{Experimental setup}
 \label{sec:experiment}
 
+
 \rev{
-All model evaluations were conducted using the Hugging Face Transformers framework and the \textit{vLLM} inference engine, which provides efficient memory management and scalable deployment for large language models. Two computing environments were used during this study. A local workstation equipped with an AMD Ryzen~5 8400F processor (4.20\,GHz, 6-core), 16\,GB RAM, and an NVIDIA GeForce RTX~4060 GPU (8\,GB VRAM) was employed for prompt development, preliminary testing, and evaluation of smaller models.
+All model evaluations were conducted using both the \textit{vLLM} inference engine and the Hugging Face Transformers framework. Two computing environments were used during this study. A local workstation equipped with an AMD Ryzen~5 8400F processor (4.20\,GHz, 6-core), 16\,GB RAM, and an NVIDIA GeForce RTX~4060 GPU (8\,GB VRAM) was employed for prompt development, preliminary testing, and evaluation of smaller models.
 }
 
 \rev{
-For large-scale inference involving Qwen-2.5-72B-Instruct-AWQ, a cloud-based NVIDIA RTX PRO 6000 GPU with approximately 96\,GB VRAM was utilized through the RunPod cloud platform. The model was deployed in its AWQ-quantized form to improve memory efficiency while maintaining predictive performance. This cloud-based configuration was necessary because the memory requirements of the 72B-parameter model exceed the capacity of an 8\,GB consumer-grade GPU. No multi-GPU cluster was used. All Qwen-2.5-72B-Instruct-AWQ inference experiments were conducted on a single cloud-based NVIDIA RTX PRO 6000 GPU through the RunPod platform.
+For large-scale inference involving Qwen-2.5-72B-Instruct-AWQ, a cloud-based NVIDIA RTX PRO 6000 GPU with approximately 96\,GB VRAM was utilized through the RunPod cloud platform. The model was deployed in its AWQ-quantized form using \texttt{AutoAWQ} and \texttt{GPTQModel} backends within the Transformers pipeline. This allowed us to improve memory efficiency while maintaining predictive performance. This cloud-based configuration was necessary because the memory requirements of the 72B-parameter model exceed the capacity of an 8\,GB consumer-grade GPU. No multi-GPU cluster was used. All Qwen-2.5-72B-Instruct-AWQ inference experiments were conducted on a single cloud-based NVIDIA RTX PRO 6000 GPU through the RunPod platform.
 }
 
 \rev{
@@ -867,7 +870,7 @@ Quantization &
 AWQ (4-bit) \\\hline
 
 Inference Engine &
-vLLM \\\hline
+\rev{vLLM and Hugging Face Transformers (with AutoAWQ/GPTQModel)} \\\hline
 
 \end{tabular}
 
@@ -875,8 +878,9 @@ vLLM \\\hline
 \end{table}
 
 \rev{
-All experiments were executed on 64-bit operating systems with CUDA and PyTorch properly configured. The combination of vLLM, AWQ quantization, and cloud-based GPU resources provided through RunPod enabled efficient and reproducible evaluation of all models, including Qwen-2.5-72B-Instruct-AWQ.
+All experiments were executed on 64-bit operating systems with CUDA and PyTorch properly configured. The combination of vLLM, the Hugging Face Transformers pipeline, AWQ quantization, and cloud-based GPU resources provided through RunPod enabled efficient and reproducible evaluation of all models, including Qwen-2.5-72B-Instruct-AWQ.
 }
+
 
 
 \subsection*{Evaluation metrics}
@@ -1147,14 +1151,14 @@ The trend is similar in the few-shot scenario, with substantial improvements for
 
   \begin{subfigure}{0.7\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{result/1_senti_classwise_zero.png}
+    % \includegraphics[width=\linewidth]{result/1_senti_classwise_zero.tif}
     \caption{Zero-shot setting}
     \label{fig:sentiment_zero}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.7\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{result/1_senti_classwise_few.png}
+    % \includegraphics[width=\linewidth]{result/1_senti_classwise_few.tif}
     \caption{Few-shot setting}
     \label{fig:sentiment_few}
   \end{subfigure}
@@ -1174,14 +1178,14 @@ Fig~\ref{fig:emo_classwise} shows the F1 scores across emotion categories. As we
     \centering
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/2_emo_classwise_zero.png}
+        % \includegraphics[width=\linewidth]{result/2_emo_classwise_zero.tif}
         \caption{Zero-shot setting}
         \label{fig:emo_zero}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/2_emo_classwise_few.png}
+        % \includegraphics[width=\linewidth]{result/2_emo_classwise_few.tif}
         \caption{Few-shot setting}
         \label{fig:emo_few}
     \end{subfigure}
@@ -1204,14 +1208,14 @@ Fig~\ref{fig:hate_classwise} presents the class-wise F1-scores for the Hate Spee
     \centering
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/3_hate_classwise_zero.png}
+        % \includegraphics[width=\linewidth]{result/3_hate_classwise_zero.tif}
         \caption{Zero-shot setting}
         \label{fig:hate_zero}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/3_hate_classwise_few.png}
+        % \includegraphics[width=\linewidth]{result/3_hate_classwise_few.tif}
         \caption{Few-shot setting}
         \label{fig:hate_few}
     \end{subfigure}
@@ -1233,14 +1237,14 @@ Interestingly, the few-shot setting doesn't give an obvious improvement for this
     \centering
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/4_fake_classwise_zero.png}
+        % \includegraphics[width=\linewidth]{result/4_fake_classwise_zero.tif}
         \caption{Zero-shot setting}
         \label{fig:fake_zero}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/4_fake_classwise_few.png}
+        % \includegraphics[width=\linewidth]{result/4_fake_classwise_few.tif}
         \caption{Few-shot setting}
         \label{fig:fake_few}
     \end{subfigure}
@@ -1271,30 +1275,30 @@ Overall, the best-performing models display clear diagonal concentration with ve
 
 % -------- Row 1 --------
 \subfloat[Gemma-2-27B (Few-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_few_best_model.tif}
 }
 \hfill
 \subfloat[Gemma-2-27B (Zero-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_zero_best_model.tif}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Few-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_few_best_model.tif}
 }
 
 \vspace{0.3cm}
 
 % -------- Row 2 --------
 \subfloat[Qwen-2.5-72B (Zero-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.tif}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Few-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_few_best_model.tif}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Zero-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_zero_best_model.tif}
 }
 
 \vspace{0.3cm}
@@ -1302,19 +1306,17 @@ Overall, the best-performing models display clear diagonal concentration with ve
 % -------- Row 3 (CENTERED) --------
 \makebox[\textwidth][c]{%
 \subfloat[Gemma-2-27B (Few-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_few_best_model.tif}
 }
 \hspace{1.2cm}
 \subfloat[Gemma-2-27B (Zero-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_zero_best_model.tif}
 }}
 
 \caption{Confusion matrices of top LLMs on Bengali text classification tasks under zero- and few-shot settings.}
 \label{fig:confusion_matrices_best}
 \end{adjustwidth}
 \end{figure*}
-
-
 
 
 \subsubsection*{Worst performing models}
@@ -1334,30 +1336,30 @@ In the hate speech detection task (Fig~\ref{fig:confusion_matrices_worst}(e) and
 
 % -------- Row 1: Sentiment --------
 \subfloat[LLaMA-3.2-3B (Zero-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_llama_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_llama_conf_zero_worst_model.tif}
 }
 \hfill
 \subfloat[Mistral-V3-7B (Few-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_mistral_conf_few_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_mistral_conf_few_worst_model.tif}
 }
 \hfill
 \subfloat[Mistral-V3-7B (Zero-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.tif}
 }
 
 \vspace{0.3cm}
 
 % -------- Row 2: Emotion + Hate --------
-\subfloat[DeepSeek-R1-8B (Few-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_deep_conf_few_worst_model.png}
+\subfloat[Mistral-V3-7B (Zero-shot – Emotion)]{
+    % \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.tif}
 }
 \hfill
 \subfloat[DeepSeek-R1-8B (Few-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_deep_conf_few_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_deep_conf_few_worst_model.tif}
 }
 \hfill
 \subfloat[LLaMA-3.2-3B (Zero-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_llama_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_llama_conf_zero_worst_model.tif}
 }
 
 \vspace{0.3cm}
@@ -1365,11 +1367,11 @@ In the hate speech detection task (Fig~\ref{fig:confusion_matrices_worst}(e) and
 % -------- Row 3: Fake News (CENTERED TWO IMAGES) --------
 \makebox[\textwidth][c]{%
 \subfloat[Mistral-V3-7B (Few-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_few_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_few_worst_model.tif}
 }
 \hspace{1.2cm}
 \subfloat[Mistral-V3-7B (Zero-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_zero_worst_model.tif}
 }}
 
 \caption{Confusion matrices of low-performing LLMs showing misclassification patterns in Bengali tasks.}
@@ -1394,6 +1396,7 @@ In the hate speech detection task (Fig~\ref{fig:confusion_matrices_worst}(e) and
 
 
 
+
 \subsection*{Receiver operating characteristic (ROC-AUC) analysis}
 \label{sec:roc_auc_analysis}
 
@@ -1413,30 +1416,30 @@ The fake news detection task (Fig~\ref{fig:roc_auc_analysis}(g) and Fig~\ref{fig
 
 % -------- Row 1: Sentiment + Emotion --------
 \subfloat[Sentiment (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_senti_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_senti_zero_shot.tif}
 }
 \hfill
 \subfloat[Sentiment (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_senti_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_senti_few_shot.tif}
 }
 \hfill
 \subfloat[Emotion (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_emo_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_emo_zero_shot.tif}
 }
 
 \vspace{0.35cm}
 
 % -------- Row 2: Emotion + Hate Speech --------
 \subfloat[Emotion (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_emo_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_emo_few_shot.tif}
 }
 \hfill
 \subfloat[Hate Speech (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_hate_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_hate_zero_shot.tif}
 }
 \hfill
 \subfloat[Hate Speech (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_hate_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_hate_few_shot.tif}
 }
 
 \vspace{0.35cm}
@@ -1444,11 +1447,11 @@ The fake news detection task (Fig~\ref{fig:roc_auc_analysis}(g) and Fig~\ref{fig
 % -------- Row 3: Fake News (CENTERED) --------
 \makebox[\textwidth][c]{%
 \subfloat[Fake News (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_fake_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_fake_zero_shot.tif}
 }
 \hspace{1.2cm}
 \subfloat[Fake News (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_fake_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_fake_few_shot.tif}
 }}
 
 \caption{ROC--AUC curves of six LLMs on Bengali text classification tasks under zero- and few-shot settings.}
@@ -1465,9 +1468,9 @@ This section provides a summary based on the observations and errors of the resu
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
     \centering
-    \subfloat[Zero-shot setting]{\includegraphics[width=0.48\linewidth]{5_zero_shot.png}}
+    % \subfloat[Zero-shot setting]{\includegraphics[width=0.48\linewidth]{5_zero_shot.tif}}
     \hfill
-    \subfloat[Few-shot setting]{\includegraphics[width=0.48\linewidth]{6_few_shot.png}}
+    % \subfloat[Few-shot setting]{\includegraphics[width=0.48\linewidth]{6_few_shot.tif}}
     \caption{LLMs' performance with two prompt settings across various classification tasks.}
     \label{fig:classwise_performance}
 \end{adjustwidth}
@@ -1514,7 +1517,7 @@ Finally, although we focus on quantitative performance measures (i.e., accuracy 
 \section*{Conclusion}
 \label{sec:conclusion} 
 
-A comprehensive evaluation of six open-source Large Language Models (LLMs)—LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B is presented with this research, where four Bengali text classification tasks are evaluated, such as sentiment analysis, emotion recognition, hate-speech detection, and fake-news detection. For ensuring equal and consistent comparisons, both zero-shot and few-shot prompting strategies were applied along with vLLM. The outcome of this research is that it sheds light on the fact that the larger multilingual models constantly surpass smaller ones across all tasks. With a zero-shot setting, the best-performing model on hate-speech detection is Qwen-2.5-72B with 79.90\% accuracy and a \rev{Macro-F1} score of 79.88\%, whereas for fake-news classification, 84.45\% accuracy is achieved with Gemma-2-27B as well as an 84.33\% \rev{Macro-F1} score. After a few-shot prompt was applied, Gemma-2-27B maintained strong performance on fake-news detection with a \rev{Macro-F1} score of 84.17\%. Qwen-2.5-72B achieved the best emotion-recognition result, reaching a \rev{Macro-F1} score of \rev{78.25\%}. These results suggest that the size of the model, the quality of multilingual pretraining, and the use of in-context examples all play an important role in improving performance for low-resource languages such as Bengali.
+A comprehensive evaluation of six open-source Large Language Models (LLMs)—LLaMA-3.2-3B, Mistral-V3-7B, DeepSeek-R1-8B, Phi-4-14B, Gemma-2-27B, and Qwen-2.5-72B is presented with this research, where four Bengali text classification tasks are evaluated, such as sentiment analysis, emotion recognition, hate-speech detection, and fake-news detection. For ensuring equal and consistent comparisons, both zero-shot and few-shot prompting strategies were applied using both the vLLM inference engine and Hugging Face Transformers pipelines. The outcome of this research is that it sheds light on the fact that the larger multilingual models constantly surpass smaller ones across all tasks. With a zero-shot setting, the best-performing model on hate-speech detection is Qwen-2.5-72B with 79.90\% accuracy and a \rev{Macro-F1} score of 79.88\%, whereas for fake-news classification, 84.45\% accuracy is achieved with Gemma-2-27B as well as an 84.33\% \rev{Macro-F1} score. After a few-shot prompt was applied, Gemma-2-27B maintained strong performance on fake-news detection with a \rev{Macro-F1} score of 84.17\%. Qwen-2.5-72B achieved the best emotion-recognition result, reaching a \rev{Macro-F1} score of \rev{78.25\%}. These results suggest that the size of the model, the quality of multilingual pretraining, and the use of in-context examples all play an important role in improving performance for low-resource languages such as Bengali.
 
 \subsection*{Future work}
 Though the findings are pretty favourable, several issues still need careful attention. A difficulty is seen among the models that are working to classify the neutral as well as the negative statement, and they also frequently lump together emotions with similar meanings, such as anger and disgust, as well as misleading statements, which are also labelled as real. These mechanisms can be strengthened further in the future. For improving the ability of the model, approaches that are improved should be applied, such as step-by-step reasoning or the use of external information sources. With an intention to improve the performance, along with the requirement of not using expensive hardware, Lightweight fine-tuning approaches such as LoRA or QLoRA can be applied. In order to acquire an improved awareness of their overall capabilities and limits, a broader set of NLP tasks, for instance, text generation, summarisation, and question answering, should be tested as well. Additionally, retaining the NLP system, which is a blessing for Bangali users, should pay great attention to its fairness across different social and demographic groups. With a view to improving further, larger and more diverse datasets should be introduced, which could be a great help to Bangali NLP tool users.
