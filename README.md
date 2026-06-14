@@ -16,20 +16,36 @@ Large Language Models (LLMs) have shown remarkable ability to process multilingu
 
 # Instructions
 
-- To run the script you need to  install `Python=3.10.x`. For LLM inference, both [vLLM](https://docs.vllm.ai/en/stable/index.html) and Huggingface `Pipeline` has been used. 
+### 1. Prerequisites
+- **Python**: Ensure you have `Python 3.10.x` installed.
+- **Conda** (Recommended): For managing virtual environments to avoid dependency conflicts.
 
-- If you are using any IDE, then first clone (`git clone <url>`) the repository. Then create a virtual environment and activate it.
+### 2. Clone the Repository
+Clone this repository to your local machine and navigate into the directory:
+```bash
+git clone https://github.com/hamidhosen42/Bengali-MultiDomain-LLM-Evaluation.git
+cd Bengali-MultiDomain-LLM-Evaluation
+```
 
-  ```
-  conda create -n NLU Python=3.10.12 
-  conda activate NLU
-  ```    
+### 3. Create a Virtual Environment
+Create and activate an isolated environment using Conda:
+```bash
+conda create -n NLU python=3.10.12 -y
+conda activate NLU
+```
 
-- Install all the dependencies.<br>
+### 4. Install Dependencies
+Install the required base libraries:
+```bash
+pip install -r requirements.txt
+```
+
+**Notes on Specific Dependencies:**
+- **Inference Engine:** This repository utilizes both [vLLM](https://docs.vllm.ai/en/stable/index.html) and the Hugging Face `pipeline` for LLM inference. To use vLLM, install it according to the [official vLLM installation guide](https://docs.vllm.ai/en/stable/getting_started/installation.html).
+- **Quantized Models:** If you are evaluating AWQ quantized models (such as `Qwen-2.5-72B-AWQ`), make sure to install `gptqmodel` and a compatible `torch` version to avoid runtime errors:
+  ```bash
+  pip install gptqmodel torch
   ```
-  pip install -r requirements.txt
-  ```
-  *(Note: If evaluating AWQ models like Qwen-72B, ensure you install `gptqmodel` and a compatible `torch` version).*
 
 ## Experimental Hardware Setup
 
@@ -195,4 +211,16 @@ python calculate_ci.py
 
 ---
 
-"# Evaluating-Open-Source-LLMs-for-Bengali-Text-Classification-Across-Multiple-Domains" 
+## Acknowledgments
+The authors deeply appreciate the **Centre for Advanced Analytics, Multimedia University**, Dr. Khair Razlan Othman, and Riadul Islam Rabbi for their important support and resources during this study. The cooperative environment and the knowledge provided by these institutions have been crucial to the accomplishment of this study's effective conclusion.
+
+## Citation
+If you find this repository or our study useful for your research, please consider citing our paper:
+```bibtex
+@article{hosen2025evaluating,
+  title={Evaluating the effectiveness of open-source LLMs for multi-domain Bengali text classification with zero-shot and few-shot prompting},
+  author={Hosen, Md. Hamid and Nawar, Sadia and Chowdhury, Rituparna and Uddin, Altaf and Rabbi, Riadul Islam and Othman, Khair Razlan Bin and Symon, Nurul Karim},
+  journal={PLOS ONE},
+  year={2025}
+}
+```
