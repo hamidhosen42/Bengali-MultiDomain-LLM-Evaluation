@@ -365,7 +365,7 @@ diversity enables a comprehensive comparison of \rev{open-weight} LLMs for Benga
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
     \centering
-    \includegraphics[width=\linewidth]{methodology/prompt-methodology.png}
+    % \includegraphics[width=\linewidth]{methodology/prompt-methodology.tif}
     \caption{Overall methodology illustrating the evaluation framework for six \rev{open-weight} LLMs across four Bengali text classification tasks under zero-shot and few-shot prompting}
     \label{fig:prompt-methodology}
 \end{adjustwidth}
@@ -743,7 +743,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-senti_zero_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-senti_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali sentiment analysis.}
 \label{fig:senti_zero_prompt}
 \end{minipage}
@@ -753,7 +753,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-emo_zero_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-emo_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali emotion recognition.}
 \label{fig:emo_zero_prompt}
 \end{minipage}
@@ -763,7 +763,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-hate_zero_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-hate_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali hate speech detection.}
 \label{fig:hate_zero_prompt}
 \end{minipage}
@@ -773,7 +773,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-fake_zero_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-fake_zero_prompt.tif}
 \captionof{figure}{Prompt used for zero-shot Bengali fake news detection.}
 \label{fig:fake_zero_prompt}
 \end{minipage}
@@ -783,7 +783,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-senti_few_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-senti_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali sentiment analysis.}
 \label{fig:senti_few_prompt}
 \end{minipage}
@@ -793,7 +793,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-emo_few_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-emo_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali emotion recognition.}
 \label{fig:emo_few_prompt}
 \end{minipage}
@@ -803,7 +803,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-hate_few_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-hate_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali hate speech detection.}
 \label{fig:hate_few_prompt}
 \end{minipage}
@@ -813,7 +813,7 @@ We differentiate the zero-shot and few-shot systems to analyze if the incorporat
 \begin{adjustwidth}{-2.25in}{0in}
 \begin{minipage}{0.95\linewidth}
 \centering
-\includegraphics[width=0.8\linewidth]{prompt/prompt-fake_few_prompt.png}
+% \includegraphics[width=0.8\linewidth]{prompt/prompt-fake_few_prompt.tif}
 \captionof{figure}{Prompt used for few-shot Bengali fake news detection.}
 \label{fig:fake_few_prompt}
 \end{minipage}
@@ -995,7 +995,7 @@ Sentiment & Few-shot & 0.023 & \rev{0.207} & 0.055 & \rev{0.440} \\
 \end{adjustwidth}
 \end{table*}
 
-The results reveal that the statistical significance of the observed performance differences varies across tasks. \rev{Before correction, the differences for hate speech detection are significant in both settings and for both metrics, and so are the differences for emotion recognition under few-shot prompting. After Holm correction over the 16 tests, four of them survive: hate speech detection under few-shot prompting for both accuracy and Macro-F1 (adjusted $p = 0.016$), hate speech detection under zero-shot prompting for Macro-F1 only (adjusted $p = 0.048$; accuracy $p = 0.077$), emotion recognition under few-shot prompting for accuracy only (adjusted $p = 0.039$; Macro-F1 $p = 0.160$), and sentiment analysis under zero-shot prompting for accuracy only (adjusted $p = 0.016$; Macro-F1 $p = 0.707$).}
+The results reveal that the statistical significance of the observed performance differences varies across tasks. \rev{Before correction, the differences for hate speech detection are significant in both settings and for both metrics, and so are the differences for emotion recognition under few-shot prompting. After Holm correction over the 16 tests, five of them survive: hate speech detection under few-shot prompting for both accuracy and Macro-F1 (adjusted $p = 0.016$), hate speech detection under zero-shot prompting for Macro-F1 only (adjusted $p = 0.048$; accuracy $p = 0.077$), emotion recognition under few-shot prompting for accuracy only (adjusted $p = 0.039$; Macro-F1 $p = 0.160$), and sentiment analysis under zero-shot prompting for accuracy only (adjusted $p = 0.016$; Macro-F1 $p = 0.707$).}
 
 In contrast, no statistically significant differences were observed for fake-news detection in either prompting setting ($p > 0.05$), suggesting that Qwen-2.5-72B and Gemma-2-27B achieved comparable performance on this task. For sentiment analysis, the findings were mixed. \rev{After correction, the accuracy difference is significant only under zero-shot prompting, where Gemma-2-27B is ahead, and the Macro-F1 differences are not significant in either setting. Note that these tests involve only Qwen-2.5-72B and Gemma-2-27B; the other models are compared in the multi-model analysis below.}
 
@@ -1216,14 +1216,14 @@ The trend is similar in the few-shot scenario, with substantial improvements for
 
   \begin{subfigure}{0.7\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{result/1_senti_classwise_zero.png}
+    % \includegraphics[width=\linewidth]{result/1_senti_classwise_zero.tif}
     \caption{Zero-shot setting}
     \label{fig:sentiment_zero}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.7\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{result/1_senti_classwise_few.png}
+    % \includegraphics[width=\linewidth]{result/1_senti_classwise_few.tif}
     \caption{Few-shot setting}
     \label{fig:sentiment_few}
   \end{subfigure}
@@ -1243,14 +1243,14 @@ Fig~\ref{fig:emo_classwise} shows the F1 scores across emotion categories. As we
     \centering
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/2_emo_classwise_zero.png}
+        % \includegraphics[width=\linewidth]{result/2_emo_classwise_zero.tif}
         \caption{Zero-shot setting}
         \label{fig:emo_zero}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/2_emo_classwise_few.png}
+        % \includegraphics[width=\linewidth]{result/2_emo_classwise_few.tif}
         \caption{Few-shot setting}
         \label{fig:emo_few}
     \end{subfigure}
@@ -1273,14 +1273,14 @@ Conversely, larger models handle the zero-shot setting more effectively. Under z
     \centering
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/3_hate_classwise_zero.png}
+        % \includegraphics[width=\linewidth]{result/3_hate_classwise_zero.tif}
         \caption{Zero-shot setting}
         \label{fig:hate_zero}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/3_hate_classwise_few.png}
+        % \includegraphics[width=\linewidth]{result/3_hate_classwise_few.tif}
         \caption{Few-shot setting}
         \label{fig:hate_few}
     \end{subfigure}
@@ -1302,14 +1302,14 @@ Interestingly, the few-shot setting doesn't give an obvious improvement for this
     \centering
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/4_fake_classwise_zero.png}
+        % \includegraphics[width=\linewidth]{result/4_fake_classwise_zero.tif}
         \caption{Zero-shot setting}
         \label{fig:fake_zero}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.7\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{result/4_fake_classwise_few.png}
+        % \includegraphics[width=\linewidth]{result/4_fake_classwise_few.tif}
         \caption{Few-shot setting}
         \label{fig:fake_few}
     \end{subfigure}
@@ -1340,30 +1340,30 @@ Overall, the best-performing models display clear diagonal concentration with \r
 
 % -------- Row 1 --------
 \subfloat[Gemma-2-27B (Few-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_few_best_model.tif}
 }
 \hfill
 \subfloat[Gemma-2-27B (Zero-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_gemma_conf_zero_best_model.tif}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Few-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_few_best_model.tif}
 }
 
 \vspace{0.3cm}
 
 % -------- Row 2 --------
 \subfloat[Qwen-2.5-72B (Zero-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/2_emo_qwen_conf_zero_best_model.tif}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Few-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_few_best_model.tif}
 }
 \hfill
 \subfloat[Qwen-2.5-72B (Zero-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_qwen_conf_zero_best_model.tif}
 }
 
 \vspace{0.3cm}
@@ -1371,11 +1371,11 @@ Overall, the best-performing models display clear diagonal concentration with \r
 % -------- Row 3 (CENTERED) --------
 \makebox[\textwidth][c]{%
 \subfloat[Gemma-2-27B (Few-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_few_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_few_best_model.tif}
 }
 \hspace{1.2cm}
 \subfloat[Gemma-2-27B (Zero-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_zero_best_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_gemma_conf_zero_best_model.tif}
 }}
 
 \caption{Confusion matrices of top LLMs on Bengali text classification tasks under zero- and few-shot settings.}
@@ -1401,30 +1401,30 @@ In the hate speech detection task (Fig~\ref{fig:confusion_matrices_worst}(e) and
 
 % -------- Row 1: Sentiment --------
 \subfloat[LLaMA-3.2-3B (Zero-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_llama_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_llama_conf_zero_worst_model.tif}
 }
 \hfill
 \subfloat[Mistral-V3-7B (Few-shot – Sentiment)]{
-    \includegraphics[height=4.0cm]{conf/1_senti_mistral_conf_few_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/1_senti_mistral_conf_few_worst_model.tif}
 }
 \hfill
 \subfloat[Mistral-V3-7B (Zero-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/2_emo_mistral_conf_zero_worst_model.tif}
 }
 
 \vspace{0.3cm}
 
 % -------- Row 2: Emotion + Hate --------
 \subfloat[DeepSeek-R1-8B (Few-shot – Emotion)]{
-    \includegraphics[height=4.0cm]{conf/2_emo_deep_conf_few_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/2_emo_deep_conf_few_worst_model.tif}
 }
 \hfill
 \subfloat[DeepSeek-R1-8B (Few-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_deep_conf_few_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_deep_conf_few_worst_model.tif}
 }
 \hfill
 \subfloat[LLaMA-3.2-3B (Zero-shot – Hate)]{
-    \includegraphics[height=4.0cm]{conf/3_hate_llama_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/3_hate_llama_conf_zero_worst_model.tif}
 }
 
 \vspace{0.3cm}
@@ -1432,11 +1432,11 @@ In the hate speech detection task (Fig~\ref{fig:confusion_matrices_worst}(e) and
 % -------- Row 3: Fake News (CENTERED TWO IMAGES) --------
 \makebox[\textwidth][c]{%
 \subfloat[Mistral-V3-7B (Few-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_few_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_few_worst_model.tif}
 }
 \hspace{1.2cm}
 \subfloat[Mistral-V3-7B (Zero-shot – Fake)]{
-    \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_zero_worst_model.png}
+    % \includegraphics[height=4.0cm]{conf/4_fake_mistral_conf_zero_worst_model.tif}
 }}
 
 \caption{Confusion matrices of low-performing LLMs showing misclassification patterns in Bengali tasks.}
@@ -1481,30 +1481,30 @@ The fake news detection task (Fig~\ref{fig:roc_auc_analysis}(g) and Fig~\ref{fig
 
 % -------- Row 1: Sentiment + Emotion --------
 \subfloat[Sentiment (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_senti_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_senti_zero_shot.tif}
 }
 \hfill
 \subfloat[Sentiment (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_senti_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_senti_few_shot.tif}
 }
 \hfill
 \subfloat[Emotion (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_emo_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_emo_zero_shot.tif}
 }
 
 \vspace{0.35cm}
 
 % -------- Row 2: Emotion + Hate Speech --------
 \subfloat[Emotion (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_emo_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_emo_few_shot.tif}
 }
 \hfill
 \subfloat[Hate Speech (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_hate_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_hate_zero_shot.tif}
 }
 \hfill
 \subfloat[Hate Speech (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_hate_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_hate_few_shot.tif}
 }
 
 \vspace{0.35cm}
@@ -1512,11 +1512,11 @@ The fake news detection task (Fig~\ref{fig:roc_auc_analysis}(g) and Fig~\ref{fig
 % -------- Row 3: Fake News (CENTERED) --------
 \makebox[\textwidth][c]{%
 \subfloat[Fake News (Zero-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_fake_zero_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_fake_zero_shot.tif}
 }
 \hspace{1.2cm}
 \subfloat[Fake News (Few-shot)]{
-    \includegraphics[width=0.30\linewidth]{roc/roc_fake_few_shot.png}
+    % \includegraphics[width=0.30\linewidth]{roc/roc_fake_few_shot.tif}
 }}
 
 \caption{ROC--AUC curves of six LLMs on Bengali text classification tasks under zero- and few-shot settings.}
@@ -1533,9 +1533,9 @@ The fake news detection task (Fig~\ref{fig:roc_auc_analysis}(g) and Fig~\ref{fig
 \begin{figure*}[t]
 \begin{adjustwidth}{-2.25in}{0in}
     \centering
-    \subfloat[Zero-shot setting]{\includegraphics[width=0.48\linewidth]{5_zero_shot.png}}
+    % \subfloat[Zero-shot setting]{\includegraphics[width=0.48\linewidth]{5_zero_shot.tif}}
     \hfill
-    \subfloat[Few-shot setting]{\includegraphics[width=0.48\linewidth]{6_few_shot.png}}
+    % \subfloat[Few-shot setting]{\includegraphics[width=0.48\linewidth]{6_few_shot.tif}}
     \caption{LLMs' performance with two prompt settings across various classification tasks.}
     \label{fig:classwise_performance}
 \end{adjustwidth}
