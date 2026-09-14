@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 **Notes on Specific Dependencies:**
 - **Inference Engine:** This repository utilizes both [vLLM](https://docs.vllm.ai/en/stable/index.html) and the Hugging Face `pipeline` for LLM inference. To use vLLM, install it according to the [official vLLM installation guide](https://docs.vllm.ai/en/stable/getting_started/installation.html).
-- **Quantized Models:** If you are evaluating AWQ quantized models (such as `Qwen-2.5-72B-AWQ`), make sure to install `gptqmodel` and a compatible `torch` version to avoid runtime errors:
+- **Quantized Models:** If you are evaluating AWQ quantized models (such as `Qwen-2.5-72B`, evaluated in its AWQ form), make sure to install `gptqmodel` and a compatible `torch` version to avoid runtime errors:
   ```bash
   pip install gptqmodel torch
   ```
@@ -51,18 +51,18 @@ pip install -r requirements.txt
 
 To ensure reproducibility, experiments were conducted across two distinct environments based on model memory constraints:
 - **Local Workstation:** A single NVIDIA RTX 4060 (8GB VRAM) was used to evaluate the smaller models.
-- **Cloud Environment:** A single NVIDIA RTX PRO 6000 (96GB VRAM) hosted on RunPod was utilized exclusively for executing and verifying the Qwen2.5-72B-AWQ model. No multi-GPU clusters were used.
+- **Cloud Environment:** A single NVIDIA RTX PRO 6000 (96GB VRAM) hosted on RunPod was utilized exclusively for executing and verifying the Qwen-2.5-72B (AWQ) model. No multi-GPU clusters were used.
 
 ## Evaluated LLMs
 
 To ensure full transparency and reproducibility, we utilized the official model weights hosted on the Hugging Face Hub. Below are the exact repository identifiers used for evaluation:
 
-- **Llama-3.2-3B:** [`meta-llama/Llama-3.2-3B-Instruct`](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)
+- **LLaMA-3.2-3B:** [`meta-llama/Llama-3.2-3B-Instruct`](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)
 - **Mistral-V3-7B:** [`mistralai/Mistral-7B-Instruct-v0.3`](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3)
 - **DeepSeek-R1-8B:** [`deepseek-ai/DeepSeek-R1-Distill-Llama-8B`](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B)
 - **Phi-4-14B:** [`microsoft/phi-4`](https://huggingface.co/microsoft/phi-4)
-- **Gemma-2-27B:** [`google/gemma-2-27b`](https://huggingface.co/google/gemma-2-27b)
-- **Qwen-2.5-72B-AWQ:** [`Qwen/Qwen2.5-72B-Instruct-AWQ`](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct-AWQ)
+- **Gemma-2-27B:** [`google/gemma-2-27b-it`](https://huggingface.co/google/gemma-2-27b-it)
+- **Qwen-2.5-72B (AWQ):** [`Qwen/Qwen2.5-72B-Instruct-AWQ`](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct-AWQ)
 
 Prompts for each task are organized in the `Prompts` folder.
 
@@ -165,7 +165,7 @@ You will get an excel file in **Results/** folder that store the responses for t
 
 ## Statistical Significance Testing
 
-To ensure the robustness of our comparative evaluation between the top-performing models (Qwen-72B and Gemma2-27B), we performed **paired permutation resampling tests** (1,000 iterations). This non-parametric approach does not assume any underlying data distribution and is highly robust for evaluating differences in paired classification tasks across multiple metrics like Accuracy and Macro F1 score.
+To ensure the robustness of our comparative evaluation between the top-performing models (Qwen-2.5-72B and Gemma-2-27B), we performed **paired permutation resampling tests** (1,000 iterations). This non-parametric approach does not assume any underlying data distribution and is highly robust for evaluating differences in paired classification tasks across multiple metrics like Accuracy and Macro F1 score.
 
 ### Running the Test
 You can run the significance testing script directly from the root directory:

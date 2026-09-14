@@ -56,7 +56,7 @@ time python zero_few_shot.py --llm_id google/gemma-2-27b-it --llm_name gemma2-27
 echo
 
 echo "Start:"
-time python zero_few_shot.py --llm_id microsoft/Phi-4 --llm_name phi4-14B --dataset_name emo --prompt_type few
+time python zero_few_shot.py --llm_id microsoft/phi-4 --llm_name phi4-14B --dataset_name emo --prompt_type few
 echo
 
 echo "Start:"

@@ -21,6 +21,8 @@ prompt_dir = os.path.join(root_dir,'Prompts')
 
 
 llm_names = ['llama32-3B', 'mistral-7B','deepseek-8B',  'phi4-14B','gemma2-27B', 'qwen-72B']
+# display names used in all figures (identical to the manuscript)
+display_names = {'llama32-3B': 'LLaMA-3.2-3B', 'mistral-7B': 'Mistral-V3-7B', 'deepseek-8B': 'DeepSeek-R1-8B', 'phi4-14B': 'Phi-4-14B', 'gemma2-27B': 'Gemma-2-27B', 'qwen-72B': 'Qwen-2.5-72B'}
 
 def classwise_f1_pivot(data, classes):
 
@@ -144,7 +146,7 @@ con_mat_senti(v_model, class_names,"1_senti_gemma_conf_few_best_model")
 ## 🎨 Clean Classwise Performance Plot (Solid Color Style)
 def classwise_plot(df, plt_name, y_limit, figsize, save=False):
     model_names = [
-        'Llama-3.2-3B', 'Mistral-V3-7B', 'DeepSeek-R1-8B',
+        'LLaMA-3.2-3B', 'Mistral-V3-7B', 'DeepSeek-R1-8B',
         'Phi-4-14B', 'Gemma-2-27B', 'Qwen-2.5-72B'
     ]
 
@@ -251,7 +253,7 @@ def classwise_plot_emo(df, plt_name, y_limit, save=False):
 
     # ✅ Model names
     model_names = [
-        'Llama-3.2-3B', 'Mistral-V3-7B', 'DeepSeek-R1-8B',
+        'LLaMA-3.2-3B', 'Mistral-V3-7B', 'DeepSeek-R1-8B',
         'Phi-4-14B', 'Gemma-2-27B', 'Qwen-2.5-72B'
     ]
 
@@ -413,7 +415,7 @@ hf = [('llama32-3B', '62.85'),('mistral-7B', '63.07'), ('deepseek-8B', '61.47'),
 ## Class wise Performance Plot
 def classwise_plot_hate(df, plt_name, y_limit ,save = False):
 
-    model_names = ['Llama-3.2-3b','Mistral-V3-7b','DeepSeek-R1-8b','Phi-4-14b','Gemma-2-27b','Qwen-2.5-72b']
+    model_names = ['LLaMA-3.2-3B','Mistral-V3-7B','DeepSeek-R1-8B','Phi-4-14B','Gemma-2-27B','Qwen-2.5-72B']
     plt.figure(figsize=(8, 3))
     ax = plt.gca()
 
@@ -573,7 +575,7 @@ ff = [('llama32-3B', '66.27'),('mistral-7B', '58.93'), ('deepseek-8B', '65.59'),
 ## Class wise Performance Plot
 def classwise_plot_fake(df, plt_name, y_limit ,save = False):
 
-    model_names = ['Llama-3.2-3b','Mistral-V3-7b','DeepSeek-R1-8b','Phi-4-14b','Gemma-2-27b','Qwen-2.5-72b']
+    model_names = ['LLaMA-3.2-3B','Mistral-V3-7B','DeepSeek-R1-8B','Phi-4-14B','Gemma-2-27B','Qwen-2.5-72B']
     plt.figure(figsize=(8, 3))
     ax = plt.gca()
 
@@ -767,7 +769,7 @@ plt.gca().spines['right'].set_visible(False)
 #plt.gca().spines['bottom'].set_visible(False)
 
 # Relabel the legends
-new_labels = ['Llama-3.2-3b', 'Mistral-V3-7b', 'DeepSeek-R1-8b', 'Phi-4-14b', 'Gemma-2-27b', 'Qwen-2.5-72b']
+new_labels = ['LLaMA-3.2-3B', 'Mistral-V3-7B', 'DeepSeek-R1-8B', 'Phi-4-14B', 'Gemma-2-27B', 'Qwen-2.5-72B']
 handles, _ = plt.gca().get_legend_handles_labels()
 plt.legend(handles=handles, labels=new_labels, loc='upper center', bbox_to_anchor=(0.5, 1.2),
            shadow=False, ncol=3, fontsize=8, handletextpad=0.5, columnspacing=0.8, handlelength=1.5, handleheight=1.2)
@@ -800,7 +802,7 @@ plt.gca().spines['right'].set_visible(False)
 #plt.gca().spines['bottom'].set_visible(False)
 
 # Relabel the legends
-new_labels = ['Llama-3.2-3b', 'Mistral-V3-7b', 'DeepSeek-R1-8b', 'Phi-4-14b', 'Gemma-2-27b', 'Qwen-2.5-72b']
+new_labels = ['LLaMA-3.2-3B', 'Mistral-V3-7B', 'DeepSeek-R1-8B', 'Phi-4-14B', 'Gemma-2-27B', 'Qwen-2.5-72B']
 handles, _ = plt.gca().get_legend_handles_labels()
 plt.legend(handles=handles, labels=new_labels, loc='upper center', bbox_to_anchor=(0.5, 1.2),
            shadow=False, ncol=3, fontsize=8, handletextpad=0.5, columnspacing=0.8, handlelength=1.5, handleheight=1.2)
@@ -859,7 +861,7 @@ def plot_roc_auc(df, dataset_name, mode, class_names, show=True):
             roc_auc_list.append(auc(fpr, tpr))
 
         mean_auc = np.mean(roc_auc_list)
-        plt.plot(fpr, tpr, lw=1.5, label=f"{model} (AUC={mean_auc:.2f})")
+        plt.plot(fpr, tpr, lw=1.5, label=f"{display_names[model]} (AUC={mean_auc:.2f})")
 
     # Plot format
     plt.plot([0, 1], [0, 1], 'k--', lw=1)

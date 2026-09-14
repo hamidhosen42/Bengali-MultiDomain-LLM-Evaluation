@@ -49,15 +49,11 @@ time python zero_shot_emo.py --llm_id mistralai/Mistral-7B-Instruct-v0.3 --llm_n
 echo
 
 echo "Start:"
-time python zero_shot_emo.py --llm_id Qwen/Qwen2.5-32B-Instruct --llm_name qwen-32B --dataset_name emo --prompt_type zero
-echo
-
-echo "Start:"
 time python zero_shot_senti.py --llm_id google/gemma-2-27b-it --llm_name gemma2-27B --dataset_name emo --prompt_type zero
 echo
 
 echo "Start:"
-time python zero_few_shot.py --llm_id microsoft/Phi-4 --llm_name phi4-14B --dataset_name emo --prompt_type zero
+time python zero_few_shot.py --llm_id microsoft/phi-4 --llm_name phi4-14B --dataset_name emo --prompt_type zero
 echo
 
 echo "Start:"
